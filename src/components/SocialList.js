@@ -17,7 +17,7 @@ class SocialList extends Component {
 
   render() {
     return (
-      <LinkList elements={this.props.socialLinks} />
+      <LinkList links={this.props.socialLinks} />
     );
   }
 }
