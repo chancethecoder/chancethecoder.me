@@ -16,8 +16,8 @@ class App extends Component {
                   </Media>
                   I am a programmer who can proudly call myself an enthusiast. <br />
                   I like climbing, cycling, traveling and most of all I want to do my job well. <br />
-                  It is hard to do work and study together, but I am studying hard now. (Especially English) <br />
-                  If you want to study together or need to contact me, please contact me.
+                  It is hard to work and study together, but I try to study steadily. <br />
+                  If you want to study together, please contact me.
                 </Media>
               </Media>
             </Col>
