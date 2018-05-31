@@ -1,25 +1,66 @@
 import React from 'react';
-import { ButtonGroup, Button, Card, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
-import SocialListGroupDropdown from './SocialListGroupDropdown';
+import {
+  Button,
+  ButtonGroup,
+  ButtonDropdown,
+  Card,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'reactstrap';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
+import faMedium from '@fortawesome/fontawesome-free-brands/faMedium';
+import './ProfileCard.css';
 
-const Example = (props) => {
-  return (
-    <Card>
-      <CardBody>
-        <CardTitle>Youngkyun, Kim</CardTitle>
-        <CardSubtitle>chancethecoder@gmail.com</CardSubtitle>
-      </CardBody>
-      <CardBody>
-        <CardText>Living in seoul, korea</CardText>
-        <CardText></CardText>
-        <ButtonGroup>
-          <Button tag="a" href="https://www.github.com/chancethecoder" size="sm" color="primary">Github</Button>
-          <Button tag="a" href="https://medium.com/@chancethecoder" size="sm" color="primary">Medium</Button>
-          <SocialListGroupDropdown />
-        </ButtonGroup>
-      </CardBody>
-    </Card>
-  );
-};
+export default class ProfileCard extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default Example;
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      dropdownOpen: false
+    };
+  }
+
+  toggle() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  }
+
+  render() {
+    return (
+      <Card>
+        <CardBody>
+          <CardTitle>Youngkyun, Kim</CardTitle>
+          <CardSubtitle>chancethecoder@gmail.com</CardSubtitle>
+        </CardBody>
+        <CardBody>
+          <CardText>Living in seoul, korea</CardText>
+          <ButtonGroup>
+            <Button tag="a" href="https://www.github.com/chancethecoder" size="sm" color="primary">
+              Github <FontAwesomeIcon icon={faGithub}/>
+            </Button>
+            <Button tag="a" href="https://medium.com/@chancethecoder" size="sm" color="primary">
+              Medium <FontAwesomeIcon icon={faMedium}/>
+            </Button>
+            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+              <DropdownToggle caret size="sm" color="primary">
+                Social
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem tag="a" href="https://www.facebook.com/chancethecoder">facebook</DropdownItem>
+                <DropdownItem tag="a" href="https://www.instagram.com/insta_kyg/">instagram</DropdownItem>
+              </DropdownMenu>
+            </ButtonDropdown>
+          </ButtonGroup>
+        </CardBody>
+      </Card>
+    )
+  }
+}
