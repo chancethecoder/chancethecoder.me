@@ -10,7 +10,8 @@ import {
   CardSubtitle,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Media
 } from 'reactstrap';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
@@ -35,31 +36,29 @@ export default class ProfileCard extends React.Component {
 
   render() {
     return (
-      <Card>
-        <CardBody>
-          <CardTitle>Youngkyun, Kim</CardTitle>
-          <CardSubtitle>chancethecoder@gmail.com</CardSubtitle>
-        </CardBody>
-        <CardBody>
-          <CardText>Living in seoul, korea</CardText>
-          <ButtonGroup>
-            <Button tag="a" href="https://www.github.com/chancethecoder" size="sm" color="primary">
-              Github <FontAwesomeIcon icon={faGithub}/>
-            </Button>
-            <Button tag="a" href="https://medium.com/@chancethecoder" size="sm" color="primary">
-              Medium <FontAwesomeIcon icon={faMedium}/>
-            </Button>
-            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret size="sm" color="primary">
-                Social
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem tag="a" href="https://www.facebook.com/chancethecoder">facebook</DropdownItem>
-                <DropdownItem tag="a" href="https://www.instagram.com/insta_kyg/">instagram</DropdownItem>
-              </DropdownMenu>
-            </ButtonDropdown>
-          </ButtonGroup>
-        </CardBody>
+      <Card body>
+        <CardTitle>chancethecoder</CardTitle>
+        <CardText className="text-muted">
+          <p className="lead">chancethecoder@gmail.com</p>
+          <hr className="my-2" />
+        </CardText>
+        <ButtonGroup block>
+          <Button tag="a" href="https://www.github.com/chancethecoder" size="sm" color="primary">
+            Github <FontAwesomeIcon icon={faGithub}/>
+          </Button>
+          <Button tag="a" href="https://medium.com/@chancethecoder" size="sm" color="primary">
+            Medium <FontAwesomeIcon icon={faMedium}/>
+          </Button>
+          <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+            <DropdownToggle caret size="sm" color="primary">
+              Social
+            </DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem tag="a" href="https://www.facebook.com/chancethecoder">facebook</DropdownItem>
+              <DropdownItem tag="a" href="https://www.instagram.com/insta_kyg/">instagram</DropdownItem>
+            </DropdownMenu>
+          </ButtonDropdown>
+        </ButtonGroup>
       </Card>
     )
   }
