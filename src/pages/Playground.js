@@ -1,10 +1,10 @@
 import React from 'react';
-import { Container } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Container } from 'reactstrap';
 
 const Playground = ({match}) => {
     return (
-        <div className="flex-container">
+        <div className="d-flex flex-column">
             <Container>
                 <h4>Playground {match.params.name}</h4>
             </Container>

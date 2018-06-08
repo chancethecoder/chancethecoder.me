@@ -16,25 +16,3 @@ body > div {
   align-items: center;
   justify-content: center;
 }
-
-.flex-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-container-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-body > div > .flex-container {
-  max-width: 70%;
-  max-height: 80%;
-}
-
-body > div > .flex-container-center {
-  width: 50%;
-  height: 50%;
-}
