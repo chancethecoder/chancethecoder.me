@@ -1,19 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
 const Menu = () => {
     return (
-        <div>
-            <Nav>
-                <NavItem>
-                    <NavLink to="/" tag={Link}>Home</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink to="/playground" tag={Link}>Playground</NavLink>
-                </NavItem>
-            </Nav>
-            <hr />
+        <div id="nav-bar">
+            <Pagination aria-label="Page navigation example">
+                <PaginationItem>
+                    <PaginationLink previous href="#" />
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink to="/" tag={Link}>1</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink to="/playground" tag={Link}>2</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink next href="#" />
+                </PaginationItem>
+            </Pagination>
         </div>
     );
 };

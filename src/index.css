@@ -4,17 +4,37 @@ body {
   font-family: sans-serif;
 }
 
-html, body {
+html,
+body,
+body > div {
   height: 100%;
   width: 100%;
 }
 
-body {
+body > div {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-body > div {
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-container-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body > div > .flex-container {
+  max-width: 70%;
+  max-height: 80%;
+}
+
+body > div > .flex-container-center {
   max-width: 50%;
+  max-height: 50%;
 }
