@@ -11,11 +11,11 @@ import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
 import faMedium from '@fortawesome/fontawesome-free-brands/faMedium';
 import faFacebookSquare from '@fortawesome/fontawesome-free-brands/faFacebookSquare';
 import faInstagram from '@fortawesome/fontawesome-free-brands/faInstagram';
-import MainContainer from 'components/MainContainer';
+import FlexContainer from 'components/FlexContainer';
 
 const Profile = () => {
     return (
-        <MainContainer>
+        <FlexContainer direction="column" justify="between" align="center" paginator>
             <Row>
                 <Col sm={{ size: 4 }}>
                     <div>
@@ -80,7 +80,7 @@ const Profile = () => {
                     </div>
                 </Col>
             </Row>
-        </MainContainer>
+        </FlexContainer>
     )
 }
 
