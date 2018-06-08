@@ -5,7 +5,7 @@ import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 const Menu = () => {
     return (
         <div id="nav-bar">
-            <Pagination aria-label="Page navigation">
+            <Pagination size="sm" aria-label="Page navigation">
                 <PaginationItem>
                     <PaginationLink previous href="#" />
                 </PaginationItem>
@@ -13,7 +13,13 @@ const Menu = () => {
                     <PaginationLink to="/" tag={Link}>1</PaginationLink>
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationLink to="/playground" tag={Link}>2</PaginationLink>
+                    <PaginationLink to="/profile" tag={Link}>2</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink to="/project" tag={Link}>3</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink to="/playground" tag={Link}>4</PaginationLink>
                 </PaginationItem>
                 <PaginationItem>
                     <PaginationLink next href="#" />
