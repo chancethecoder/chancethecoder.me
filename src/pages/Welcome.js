@@ -5,7 +5,7 @@ import Menu from 'components/Menu';
 const Welcome = () => {
     return (
         <div className="flex-container-center">
-            <Container>
+            <Container className="mb-4">
                 <h4 className="text-center mb-4">Welcome!</h4>
                 <p className="text-center">
                     I am a programmer who can proudly call myself an enthusiast.<br />

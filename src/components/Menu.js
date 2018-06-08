@@ -5,7 +5,7 @@ import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 const Menu = () => {
     return (
         <div id="nav-bar">
-            <Pagination aria-label="Page navigation example">
+            <Pagination aria-label="Page navigation">
                 <PaginationItem>
                     <PaginationLink previous href="#" />
                 </PaginationItem>
