@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
-import Paginator from 'components/Paginator';
 
 class FlexContainer extends Component {
     render() {
@@ -15,22 +14,23 @@ class FlexContainer extends Component {
 
         return (
             <div className={classNames.join(' ')}>
+                {this.props.items.prevItem}
                 <Container>
                     {this.props.children}
                 </Container>
-                {this.props.paginator ? <Paginator/> : ''}
+                {this.props.items.nextItem}
             </div>
         );
     }
 };
 
 FlexContainer.defaultProps = {
-    width: 50,
-    height: 50,
+    width: 100,
+    height: 100,
     direction: 'row',
     justify: 'start',
     align: 'stretch',
-    paginator: false
+    items: {}
 }
 
 export default FlexContainer;

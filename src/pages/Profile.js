@@ -7,17 +7,27 @@ import {
     Row
 } from 'reactstrap';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
-import faMedium from '@fortawesome/fontawesome-free-brands/faMedium';
-import faFacebookSquare from '@fortawesome/fontawesome-free-brands/faFacebookSquare';
-import faInstagram from '@fortawesome/fontawesome-free-brands/faInstagram';
+import {
+    faGithub,
+    faMedium,
+    faFacebookSquare,
+    faInstagram
+}  from '@fortawesome/fontawesome-free-brands';
 import FlexContainer from 'components/FlexContainer';
+import Paginator from 'components/Paginator';
 
 const Profile = () => {
     return (
-        <FlexContainer direction="column" justify="between" align="center" paginator>
+        <FlexContainer
+            width={50}
+            height={50}
+            direction="column"
+            justify="between"
+            align="center"
+            items={{ nextItem: <Paginator/> }}
+        >
             <Row>
-                <Col sm={{ size: 4 }}>
+                <Col lg={{ size: 4 }} md={{ size: 12 }}>
                     <div>
                         <h4>Youngkyun Kim</h4>
                         <hr className="mt-4" />
@@ -43,7 +53,7 @@ const Profile = () => {
                         </Button>
                     </ButtonGroup>
                 </Col>
-                <Col sm={{ size: 8 }}>
+                <Col lg={{ size: 8 }} md={{ size: 12 }}>
                     <div className="mb-5">
                         <h5 className="mb-3">Favorite</h5>
                         <Progress className="mb-3" value={75}>Climbing</Progress>
