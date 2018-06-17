@@ -1,21 +1,33 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Welcome, Profile, Projects, Playground } from 'pages';
+import PropTypes from 'prop-types';
+import { MainLayout, PlaygroundLayout } from 'layouts';
+import { Welcome, Profile, Projects, Playground, NotFound } from 'pages';
 
-class App extends Component {
-    render() {
-        return (
-            <Fragment>
-                <Route exact path="/" component={Welcome}/>
-                <Route exact path="/profile" component={Profile}/>
-                <Route exact path="/project" component={Projects}/>
-                <Switch>
-                    <Route path="/playground/:name" component={Playground}/>
-                    <Route path="/playground" component={Playground}/>
-                </Switch>
-            </Fragment>
-        );
-    }
+function RouteWithLayout({ layout, component, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        React.createElement(layout, props, React.createElement(component, props))
+      }
+    />
+  );
 }
+
+RouteWithLayout.propTypes = {
+  layout: PropTypes.func.isRequired,
+  component: PropTypes.func.isRequired,
+};
+
+const App = () => (
+  <Switch>
+    <RouteWithLayout exact path="/" layout={MainLayout} component={Welcome} />
+    <RouteWithLayout exact path="/profile" layout={MainLayout} component={Profile} />
+    <RouteWithLayout exact path="/project" layout={MainLayout} component={Projects} />
+    <RouteWithLayout path="/playground" layout={PlaygroundLayout} component={Playground} />
+    <RouteWithLayout layout={MainLayout} component={NotFound} />
+  </Switch>
+);
 
 export default App;
