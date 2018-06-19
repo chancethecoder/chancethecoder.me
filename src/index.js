@@ -39,7 +39,11 @@ injectGlobal`
     src: url('./fonts/AirbnbCereal-Black.ttf') format('truetype');
   }
 
-  html {
+  html,
+  p,
+  a,
+  span,
+  button {
     font: 400 16px/1.7 Cereal,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   }
 `;

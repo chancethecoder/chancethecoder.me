@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import Flex from 'components/Flex';
 
-const BaseLayout = styled(Flex)`
-  background: #fff;
+const BaseWrapper = styled(Flex)`
+  width: 100vw;
   height: 100vh;
 `;
 
-export default BaseLayout;
+export default BaseWrapper;
