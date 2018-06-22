@@ -6,7 +6,7 @@ const StyledNavLink = styled(NavLink)`
   display: block;
   padding: 0.25em 1em;
   margin: 0 1.5em;
-  font-size: 1.3em;
+  font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
   color: #166191;
@@ -14,7 +14,7 @@ const StyledNavLink = styled(NavLink)`
 
 const HomeNav = () => (
   <StyledNavLink exact to="/" >
-    Chancethecoder.me
+    chancethecoder &hearts; me
   </StyledNavLink>
 );
 

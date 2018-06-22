@@ -46,6 +46,14 @@ injectGlobal`
   button {
     font: 400 16px/1.7 Cereal,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h1, h2, h3, p {
+    margin: 0;
+  }
 `;
 
 ReactDOM.render(<Root />, document.getElementById('root'));

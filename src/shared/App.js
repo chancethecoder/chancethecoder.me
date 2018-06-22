@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { MainLayout, PlaygroundLayout } from 'layouts';
-import { Welcome, Profile, Projects, Playground, NotFound } from 'pages';
+import { Welcome, Profile, Playground, NotFound } from 'pages';
 
 function RouteWithLayout({ layout, component, ...rest }) {
   return (
@@ -24,7 +24,6 @@ const App = () => (
   <Switch>
     <RouteWithLayout exact path="/" layout={MainLayout} component={Welcome} />
     <RouteWithLayout exact path="/profile" layout={MainLayout} component={Profile} />
-    <RouteWithLayout exact path="/project" layout={MainLayout} component={Projects} />
     <RouteWithLayout path="/playground" layout={PlaygroundLayout} component={Playground} />
     <RouteWithLayout layout={MainLayout} component={NotFound} />
   </Switch>
