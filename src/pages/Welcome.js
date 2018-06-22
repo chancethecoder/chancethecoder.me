@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { media, appearsOut } from 'utils/style-utils';
 
-const StyledWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   align-items: flex-end;
   margin: auto;
@@ -11,11 +11,11 @@ const StyledWrapper = styled.div`
   min-height: 100vh;
 `;
 
-const StyledContentDiv = styled.div`
+const Content = styled.div`
   margin: 5rem auto 0;
 `;
 
-const StyledGrid = styled.div`
+const Grid = styled.div`
   display: grid;
   width: 100vw;
   margin: auto;
@@ -31,17 +31,13 @@ const StyledGrid = styled.div`
   animation: ${appearsOut} .55s forwards .15s;
 `;
 
-const StyledGridInner = styled.div`
-  grid-column: 1 / span 24;
-  align-self: flex-end;
+const GridItem = styled.div`
+  grid-column: ${props => (props.column ? props.column : 1)};
+  grid-row: ${props => (props.row ? props.row : 1)};
+  align-self: ${props => (props.align ? props.align : 'auto')};
 `;
 
-const StyledHeaderDiv = styled.div`
-  grid-column: 1 / span 16;
-  grid-row: 1;
-`;
-
-const StyledParagraphDiv = styled.div`
+const ParagraphWrapper = styled(GridItem)`
   ${media.desktop`
     grid-column: 1 / span 14;
   `}
@@ -72,26 +68,26 @@ const StyledParagraph = styled.p`
 `;
 
 const Welcome = () => (
-  <StyledWrapper>
-    <StyledContentDiv>
-      <StyledGrid>
-        <StyledGridInner>
-          <StyledHeaderDiv>
+  <Wrapper>
+    <Content>
+      <Grid>
+        <GridItem column="1/span 24" align="flex-end">
+          <GridItem column="1/span 16">
             <StyledHeader>
               Welcome!
             </StyledHeader>
-          </StyledHeaderDiv>
-          <StyledParagraphDiv>
+          </GridItem>
+          <ParagraphWrapper>
             <StyledParagraph>
               I am a programmer who can proudly call myself an enthusiast.<br />
               I like climbing, traveling and most of all I want to do my job well.<br />
               If you want to work together, please contact me.
             </StyledParagraph>
-          </StyledParagraphDiv>
-        </StyledGridInner>
-      </StyledGrid>
-    </StyledContentDiv>
-  </StyledWrapper>
+          </ParagraphWrapper>
+        </GridItem>
+      </Grid>
+    </Content>
+  </Wrapper>
 );
 
 export default Welcome;
