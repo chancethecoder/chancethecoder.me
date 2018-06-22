@@ -21,7 +21,7 @@ const StyledGrid = styled.div`
   margin: auto;
   grid-template-columns: repeat(24, 1fr);
 
-  ${media.giant`
+  ${media.desktop`
     align-items: center;
     overflow-x: hidden;
     padding: 8vh 8vw 8vh;
@@ -42,11 +42,11 @@ const StyledHeaderDiv = styled.div`
 `;
 
 const StyledParagraphDiv = styled.div`
-  ${media.giant`
+  ${media.desktop`
     grid-column: 1 / span 14;
   `}
 
-  ${media.tablet`
+  ${media.laptop`
     grid-column: 1 / span 18;
   `}
 `;
@@ -65,7 +65,7 @@ const StyledParagraph = styled.p`
   font-size: 1.75rem;
   line-height: 1.5;
 
-  ${media.tablet`
+  ${media.laptop`
     font-size: 1.25rem;
     max-width: 30vw;
   `}

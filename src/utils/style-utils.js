@@ -1,22 +1,25 @@
 import { css, keyframes } from 'styled-components';
 
-const sizes = {
-  giant: 1170,
-  desktop: 992,
-  tablet: 768,
-  phone: 376,
-};
+/* eslint-disable func-names */
+export const media = (function () {
+  const sizes = {
+    desktop: 1280,
+    laptop: 1024,
+    tablet: 768,
+    phone: 480,
+  };
 
-/* eslint-disable no-param-reassign */
-export const media = Object.keys(sizes).reduce((accumulator, label) => {
-  const emSize = sizes[label] / 16;
-  accumulator[label] = (...args) => css`
-    @media (min-width: ${emSize}em) {
-      ${css(...args)}
-    }
-  `;
-  return accumulator;
-}, {});
+  /* eslint-disable no-param-reassign */
+  return Object.keys(sizes).reduce((accumulator, label) => {
+    const emSize = sizes[label] / 16;
+    accumulator[label] = (...args) => css`
+      @media (min-width: ${emSize}em) {
+        ${css(...args)}
+      }
+    `;
+    return accumulator;
+  }, {});
+}());
 
 export function truncate(width) {
   return `
@@ -40,22 +43,33 @@ export const appearsOut = keyframes`
 
 export const slideIn = keyframes`
   from {
-    opacity: 0;
-    margin-left: 100%;
+    margin-left: 20%;
   }
   to {
-    opacity: 1;
     margin-left: 0%;
   }
 `;
 
 export const slideOut = keyframes`
   from {
-    opacity: 1;
-    margin-left: 100%;
-  }
-  to {
-    opacity: 0;
     margin-left: 0%;
   }
+  to {
+    margin-left: 20%;
+  }
+`;
+
+export const show = css`
+  visibility: visible;
+  opacity: 1;
+
+  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+  transition-delay: 0s;
+`;
+
+export const hide = css`
+  visibility: hidden;
+  opacity: 0;
+
+  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
 `;

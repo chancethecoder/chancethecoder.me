@@ -39,9 +39,7 @@ class Menu extends Component {
         <StyledPadder>
           <HomeNav />
           <Flex column="column" valign="center">
-            {
-              this.state.navToggled && <NavBar />
-            }
+            <NavBar show={this.state.navToggled} />
             <ToggleButton handleClick={this.toggle} />
           </Flex>
         </StyledPadder>

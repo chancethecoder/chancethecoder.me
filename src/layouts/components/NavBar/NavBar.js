@@ -1,14 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import List from 'components/List';
 import ListItem from 'components/ListItem';
-import { slideIn } from 'utils/style-utils';
+import { slideIn, slideOut, show, hide } from 'utils/style-utils';
 
 const StyledList = styled(List)`
   padding: 0 1em;
   margin: 0 1.5rem;
-  animation: ${slideIn} 1s;
+
+  animation: ${props => (props.show ? slideIn : slideOut)} 1s;
+  ${props => (props.show ? show : hide)};
 `;
 
 const StyledListItem = styled(ListItem)`
@@ -22,9 +25,9 @@ const StyledNavLink = styled(NavLink)`
   font-weight: 500;
 `;
 
-const NavBar = () => (
+const NavBar = props => (
   <nav>
-    <StyledList>
+    <StyledList show={props.show}>
       <StyledListItem>
         <StyledNavLink exact to="/profile" >profile</StyledNavLink>
       </StyledListItem>
@@ -34,5 +37,9 @@ const NavBar = () => (
     </StyledList>
   </nav>
 );
+
+NavBar.propTypes = {
+  show: PropTypes.bool.isRequired,
+};
 
 export default NavBar;
