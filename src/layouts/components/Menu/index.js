@@ -16,6 +16,10 @@ const StyledPadder = styled(Flex)`
   padding: 1.5rem 2.5rem;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    padding: 1.5rem;
+  }
 `;
 
 class Menu extends Component {
@@ -49,17 +53,3 @@ class Menu extends Component {
 }
 
 export default Menu;
-
-// const Menu = () => (
-//   <StyledWrapper>
-//     <StyledPadder>
-//       <HomeNav />
-//       <Flex column="column" valign="center">
-//         <NavBar />
-//         <ToggleButton />
-//       </Flex>
-//     </StyledPadder>
-//   </StyledWrapper>
-// );
-
-// export default Menu;

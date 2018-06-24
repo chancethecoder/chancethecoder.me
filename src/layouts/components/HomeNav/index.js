@@ -4,12 +4,10 @@ import styled from 'styled-components';
 
 const StyledNavLink = styled(NavLink)`
   display: block;
-  padding: 0.25em 1em;
-  margin: 0 1.5em;
   font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
-  color: #166191;
+  color: #000;
 `;
 
 const HomeNav = () => (

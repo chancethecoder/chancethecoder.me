@@ -19,9 +19,10 @@ const Grid = styled.div`
   display: grid;
   width: 100vw;
   margin: auto;
+  padding: 1.5rem;
   grid-template-columns: repeat(24, 1fr);
 
-  ${media.desktop`
+  ${media.laptop`
     align-items: center;
     overflow-x: hidden;
     padding: 8vh 8vw 8vh;
@@ -48,22 +49,27 @@ const ParagraphWrapper = styled(GridItem)`
 `;
 
 const StyledHeader = styled.h1`
-  font-size: 5.5vw;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 13vw;
+  letter-spacing: -1.4px;
   line-height: 1.1;
   display: block;
   margin-bottom: 0.2em;
+
+  ${media.tablet`
+    font-size: 5.5vw;
+    letter-spacing: -0.02em;
+  `}
 `;
 
 const StyledParagraph = styled.p`
   margin-bottom: 1em;
-  font-size: 1.75rem;
+  font-size: 1rem;
   line-height: 1.5;
 
   ${media.laptop`
     font-size: 1.25rem;
-    max-width: 30vw;
+    max-width: 40vw;
   `}
 `;
 
@@ -79,8 +85,8 @@ const Welcome = () => (
           </GridItem>
           <ParagraphWrapper>
             <StyledParagraph>
-              I am a programmer who can proudly call myself an enthusiast.<br />
-              I like climbing, traveling and most of all I want to do my job well.<br />
+              I am a programmer who can proudly call myself an enthusiast.
+              I like climbing, traveling and most of all I want to do my job well.
               If you want to work together, please contact me.
             </StyledParagraph>
           </ParagraphWrapper>

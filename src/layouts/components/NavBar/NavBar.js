@@ -7,7 +7,6 @@ import ListItem from 'components/ListItem';
 import { slideIn, slideOut, show, hide } from 'utils/style-utils';
 
 const StyledList = styled(List)`
-  padding: 0 1em;
   margin: 0 1.5rem;
 
   animation: ${props => (props.show ? slideIn : slideOut)} 1s;
@@ -20,9 +19,9 @@ const StyledListItem = styled(ListItem)`
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  color: #333;
+  color: #000;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
 `;
 
 const NavBar = props => (
