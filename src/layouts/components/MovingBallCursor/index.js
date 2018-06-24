@@ -13,7 +13,6 @@ const rgbCodeFromCoordinates = (xCoordinate, yCoordinate) => {
 
 const Ball = styled.div`
   border-radius: 99px;
-  background-color: white;
   width: 50px;
   height: 50px;
   border: 1.5px solid #000;
