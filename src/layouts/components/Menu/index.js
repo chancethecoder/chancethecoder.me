@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { media } from 'utils/style-utils';
 import Flex from 'components/Flex';
-import HomeNav from 'layouts/components/HomeNav';
+import HomeButton from 'layouts/components/HomeButton';
 import NavBar from 'layouts/components/NavBar';
 import ToggleButton from 'layouts/components/Menu/ToggleButton';
 
@@ -17,9 +18,9 @@ const StyledPadder = styled(Flex)`
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 1024px) {
+  ${media.max.laptop`
     padding: 1.5rem;
-  }
+  `}
 `;
 
 class Menu extends Component {
@@ -41,8 +42,8 @@ class Menu extends Component {
     return (
       <StyledWrapper>
         <StyledPadder>
-          <HomeNav />
-          <Flex column="column" valign="center">
+          <HomeButton />
+          <Flex>
             <NavBar show={this.state.navToggled} />
             <ToggleButton handleClick={this.toggle} />
           </Flex>

@@ -10,7 +10,7 @@ export const media = (function () {
   };
 
   /* eslint-disable no-param-reassign */
-  return Object.keys(sizes).reduce((accumulator, label) => {
+  const min = Object.keys(sizes).reduce((accumulator, label) => {
     const emSize = sizes[label] / 16;
     accumulator[label] = (...args) => css`
       @media (min-width: ${emSize}em) {
@@ -19,6 +19,22 @@ export const media = (function () {
     `;
     return accumulator;
   }, {});
+
+  /* eslint-disable no-param-reassign */
+  const max = Object.keys(sizes).reduce((accumulator, label) => {
+    const emSize = sizes[label] / 16;
+    accumulator[label] = (...args) => css`
+      @media (max-width: ${emSize}em) {
+        ${css(...args)}
+      }
+    `;
+    return accumulator;
+  }, {});
+
+  return {
+    min,
+    max,
+  };
 }());
 
 export function truncate(width) {
@@ -56,6 +72,28 @@ export const slideOut = keyframes`
   }
   to {
     margin-left: 20%;
+  }
+`;
+
+export const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translate3d(0,10px,10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+`;
+
+export const fadeOut = keyframes`
+  from {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0,10px,10px);
   }
 `;
 

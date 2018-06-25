@@ -9,7 +9,7 @@ import { slideIn, slideOut, show, hide } from 'utils/style-utils';
 const StyledList = styled(List)`
   margin: 0 1.5rem;
 
-  animation: ${props => (props.show ? slideIn : slideOut)} 1s;
+  animation: ${props => (props.show ? slideIn : slideOut)} 0.5s;
   ${props => (props.show ? show : hide)};
 `;
 

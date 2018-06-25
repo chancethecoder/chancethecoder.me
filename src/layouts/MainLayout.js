@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Menu from 'layouts/components/Menu';
-import MovingBallCursor from 'layouts/components/MovingBallCursor';
 import RiffleCursor from 'layouts/components/RiffleCursor';
 
 const Background = styled.div`

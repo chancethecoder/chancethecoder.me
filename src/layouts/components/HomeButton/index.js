@@ -10,10 +10,10 @@ const StyledNavLink = styled(NavLink)`
   color: #000;
 `;
 
-const HomeNav = () => (
+const HomeButton = () => (
   <StyledNavLink exact to="/" >
     chancethecoder &hearts; me
   </StyledNavLink>
 );
 
-export default HomeNav;
+export default HomeButton;
