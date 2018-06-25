@@ -32,6 +32,11 @@ export default class RiffleCursor extends Component {
     window.addEventListener('touchmove', this.handleTouchMove);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('mousemove', this.handleMouseMove);
+    window.removeEventListener('touchmove', this.handleTouchMove);
+  }
+
   handleMouseMove = ({ pageX, pageY }) => {
     this.setState(() => ({
       mouse: [pageX - 25, pageY - 25],
@@ -75,18 +80,18 @@ export default class RiffleCursor extends Component {
                   y,
                 },
               }) =>
-              (<Riffle
-                key={key}
-                style={{
-                  opacity,
-                  scale,
-                  transform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
-                  WebkitTransform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
-                  border: `1px solid ${rgbCodeFromCoordinates(x, y)}`,
-                }}
-              />))}
+                (<Riffle
+                  key={key}
+                  style={{
+                    opacity,
+                    scale,
+                    transform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
+                    WebkitTransform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
+                    border: `1px solid ${rgbCodeFromCoordinates(x, y)}`,
+                  }}
+                />))}
             </div>
-           )
+          )
         }
       </TransitionMotion>
     );

@@ -34,6 +34,11 @@ export default class MovingBallCursor extends Component {
     window.addEventListener('touchmove', this.handleTouchMove);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('mousemove', this.handleMouseMove);
+    window.removeEventListener('touchmove', this.handleTouchMove);
+  }
+
   getStyles = (prevStyles) => {
     const endValue = prevStyles.map((_, i) => (i === 0
       ? this.state

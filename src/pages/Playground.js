@@ -1,16 +1,35 @@
 import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Flex from 'components/Flex';
+import { media, fadeIn } from 'utils/style-utils';
+import Grid from 'pages/components/Grid';
+import GridItem from 'pages/components/GridItem';
+import Wrapper from 'pages/components/Wrapper';
+import BottomFloater from 'pages/components/BottomFloater';
+import PageMover from 'pages/components/PageMover';
 
-const StyledHeader = styled.h4`
-  font-size: 2.5rem;
-  font-weight: 600;
+const AnimatedGridItem = styled(GridItem)`
+  animation: ${fadeIn} .3s;
 `;
 
-const StyledParagraph = styled.section`
-  font-size: 1rem;
+const ParagraphWrapper = styled(GridItem)`
+  ${media.min.desktop`
+    grid-column: 1 / span 14;
+  `}
+
+  ${media.min.laptop`
+    grid-column: 1 / span 18;
+  `}
+`;
+
+const StyledHeader = styled.h4`
+  grid-column: 1 / 15;
+  font-size: 2rem;
+  grid-row: 1 / 4;
+  padding: 3vh 0 1vh;
+  line-height: 1.1;
+  margin-bottom: 0.5em;
 `;
 
 const Topic = ({ match }) => (
@@ -28,14 +47,21 @@ Topic.propTypes = {
 };
 
 const Playground = ({ match }) => (
-  <Flex valign="center" direction="column">
-    <StyledHeader>Playground</StyledHeader>
-    <StyledParagraph>
-      click the button!
-    </StyledParagraph>
-    <NavLink exact to={`/playground/${Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}`} >random</NavLink>
-    <Route path={`${match.url}/:topicId`} component={Topic} />
-  </Flex>
+  <Wrapper>
+    <Grid>
+      <AnimatedGridItem column="1/span 24" align="flex-center">
+        <ParagraphWrapper>
+          <Route path={`${match.url}/:topicId`} component={Topic} />
+        </ParagraphWrapper>
+      </AnimatedGridItem>
+    </Grid>
+    <BottomFloater>
+      <PageMover left="/profile" right={`/playground/${Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}`} />
+      <StyledHeader>
+        Playground
+      </StyledHeader>
+    </BottomFloater>
+  </Wrapper>
 );
 
 Playground.propTypes = {
