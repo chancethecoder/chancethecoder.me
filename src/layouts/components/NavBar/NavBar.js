@@ -18,7 +18,6 @@ const StyledListItem = styled(ListItem)`
 `;
 
 const StyledNavLink = styled(NavLink)`
-  text-decoration: none;
   color: #000;
   font-size: 1rem;
   font-weight: 400;

@@ -54,6 +54,10 @@ injectGlobal`
   h1, h2, h3, p {
     margin: 0;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 ReactDOM.render(<Root />, document.getElementById('root'));

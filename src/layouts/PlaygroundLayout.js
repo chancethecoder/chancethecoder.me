@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Menu from 'layouts/components/Menu';
@@ -15,6 +16,10 @@ const Background = styled.div`
 
 const PlaygroundLayout = props => (
   <main>
+    <Helmet>
+      <title>Playground | Chancethecoder</title>
+      <meta name="description" content="chancethecoder's website" />
+    </Helmet>
     <Menu />
     <Background>
       <MovingBallCursor />
