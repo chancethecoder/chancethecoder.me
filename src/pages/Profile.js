@@ -4,8 +4,6 @@ import { media, fadeIn } from 'utils/style-utils';
 import Grid from 'pages/components/Grid';
 import GridItem from 'pages/components/GridItem';
 import Wrapper from 'pages/components/Wrapper';
-import BottomFloater from 'pages/components/BottomFloater';
-import PageMover from 'pages/components/PageMover';
 
 const AnimatedGridItem = styled(GridItem)`
   animation: ${fadeIn} .3s;
@@ -48,23 +46,22 @@ const StyledParagraph = styled.p`
 
 const Profile = () => (
   <Wrapper>
-    <Grid>
+    <Grid width="100vw">
       <AnimatedGridItem column="1/span 24" align="flex-center">
         <GridItem column="1/span 16">
           <StyledHeader>
-            Introducing Myself: Chancethecoder
+            Chance-the-coder
           </StyledHeader>
         </GridItem>
         <ParagraphWrapper>
           <StyledParagraph>
-            Hello~
+            I am a programmer who can proudly call myself an enthusiast.
+            I like climbing, traveling and most of all I want to do my job well.
+            If you want to work together, please contact me.
           </StyledParagraph>
         </ParagraphWrapper>
       </AnimatedGridItem>
     </Grid>
-    <BottomFloater>
-      <PageMover left="/" right="/playground" />
-    </BottomFloater>
   </Wrapper>
 );
 

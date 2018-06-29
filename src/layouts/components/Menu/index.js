@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { media } from 'utils/style-utils';
-import Flex from 'components/Flex';
 import HomeButton from 'layouts/components/HomeButton';
 import NavBar from 'layouts/components/NavBar';
 import ToggleButton from 'layouts/components/Menu/ToggleButton';
 
-const StyledWrapper = styled.div`
+const Wrapper = styled.div`
   width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
 `;
 
-const StyledPadder = styled(Flex)`
+const Padder = styled.div`
+  display: flex;
   padding: 1.5rem 2.5rem;
   align-items: center;
   justify-content: space-between;
@@ -21,6 +21,10 @@ const StyledPadder = styled(Flex)`
   ${media.max.laptop`
     padding: 1.5rem;
   `}
+`;
+
+const NavWrapper = styled.div`
+  display: flex;
 `;
 
 class Menu extends Component {
@@ -40,15 +44,15 @@ class Menu extends Component {
 
   render() {
     return (
-      <StyledWrapper>
-        <StyledPadder>
+      <Wrapper>
+        <Padder>
           <HomeButton />
-          <Flex>
+          <NavWrapper>
             <NavBar show={this.state.navToggled} />
             <ToggleButton handleClick={this.toggle} />
-          </Flex>
-        </StyledPadder>
-      </StyledWrapper>
+          </NavWrapper>
+        </Padder>
+      </Wrapper>
     );
   }
 }

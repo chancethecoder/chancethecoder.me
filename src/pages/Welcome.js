@@ -1,17 +1,18 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import propTypes from 'prop-types';
 import styled from 'styled-components';
 import { media, appearsOut } from 'utils/style-utils';
 import Grid from 'pages/components/Grid';
 import GridItem from 'pages/components/GridItem';
 import Wrapper from 'pages/components/Wrapper';
-import BottomFloater from 'pages/components/BottomFloater';
-import PageMover from 'pages/components/PageMover';
 
-const Content = styled.div`
+const Padder = styled.div`
   margin: 5rem auto 0;
 `;
 
 const AnimatedGrid = styled(Grid)`
+  width: 100vw;
   opacity: 0;
   animation: ${appearsOut} .55s forwards .15s;
 `;
@@ -51,9 +52,36 @@ const StyledParagraph = styled.p`
   `}
 `;
 
+const StyledNavLink = styled(NavLink)`
+  display: inline-block;
+  color: ${props => (props.outlined ? props.background : props.color)};
+  background: ${props => (props.outlined ? props.color : props.background)};
+  font-weight: bold;
+  font-size: 20px;
+  padding: 16px 64px;
+  margin-bottom: 24px;
+  margin-right: 16px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform .25s ease;
+  border: ${props => (props.outlined ? `1.5px solid ${props.background}` : 'none')};
+`;
+
+StyledNavLink.defaultProps = {
+  background: '#ff5a5f',
+  color: '#FFF',
+  outlined: false,
+};
+
+StyledNavLink.propTypes = {
+  background: propTypes.string,
+  color: propTypes.string,
+  outlined: propTypes.boolean,
+};
+
 const Welcome = () => (
   <Wrapper>
-    <Content>
+    <Padder>
       <AnimatedGrid>
         <GridItem column="1/span 24" align="flex-end">
           <GridItem column="1/span 16">
@@ -63,17 +91,20 @@ const Welcome = () => (
           </GridItem>
           <ParagraphWrapper>
             <StyledParagraph>
-              I am a programmer who can proudly call myself an enthusiast.
-              I like climbing, traveling and most of all I want to do my job well.
-              If you want to work together, please contact me.
+              A collection of my experiments, inspirations, stories.<br />
+              Let&apos;s code just for fun developers!
             </StyledParagraph>
           </ParagraphWrapper>
+          <br />
+          <StyledNavLink exact to="/playground">
+            Explore
+          </StyledNavLink>
+          <StyledNavLink exact to="/profile" outlined>
+            It&apos;s me
+          </StyledNavLink>
         </GridItem>
       </AnimatedGrid>
-    </Content>
-    <BottomFloater>
-      <PageMover left="/" right="/profile" />
-    </BottomFloater>
+    </Padder>
   </Wrapper>
 );
 
