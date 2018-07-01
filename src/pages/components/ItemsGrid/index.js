@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { scaleOnHover } from 'utils/style-utils';
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,14 +19,18 @@ const Image = styled.div`
   background: url('${props => props.image}');
   background-size: cover;
   background-position: center;
+  cursor: pointer;
+
+  ${scaleOnHover}
 `;
 
 const Name = styled.h4`
 `;
 
-const ItemsGrid = ({ items }) => (
+const ItemsGrid = props => (
   <Wrapper>
-    {items.map((item, index) => (
+    {props.items.map((item, index) => (
+      /* eslint-disable react/no-array-index-key */
       <Item key={index}>
         <Image
           image={item.picture}
@@ -36,7 +41,11 @@ const ItemsGrid = ({ items }) => (
   </Wrapper>
 );
 
-ItemsGrid.prototype = {
+ItemsGrid.defaultProps = {
+  items: [],
+};
+
+ItemsGrid.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequire,
     picture: PropTypes.string.isRequire,
