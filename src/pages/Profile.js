@@ -1,9 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { media, fadeIn } from 'utils/style-utils';
-import Grid from 'pages/components/Grid';
-import GridItem from 'pages/components/GridItem';
-import Wrapper from 'pages/components/Wrapper';
+import Grid from 'components/Grid';
+import GridItem from 'components/GridItem';
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  margin: auto;
+  padding: none;
+  min-height: 100vh;
+`;
 
 const AnimatedGridItem = styled(GridItem)`
   animation: ${fadeIn} .3s;

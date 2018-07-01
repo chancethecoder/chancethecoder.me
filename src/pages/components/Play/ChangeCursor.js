@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
 import styled from 'styled-components';
-import MovingBallCursor from 'pages/components/MovingBallCursor';
-import RiffleCursor from 'pages/components/RiffleCursor';
+import Button from 'components/Button';
+import {
+  MovingBallCursor,
+  RiffleCursor,
+} from 'pages/components/CursorAnimation';
 
 const Background = styled.div`
   position: fixed;
@@ -12,33 +14,6 @@ const Background = styled.div`
   width: 100vw;
   height: 100vh;
 `;
-
-const StyledButton = styled.button`
-  display: inline-block;
-  color: ${props => (props.outlined ? props.background : props.color)};
-  background: ${props => (props.outlined ? props.color : props.background)};
-  font-weight: bold;
-  font-size: 20px;
-  padding: 16px 64px;
-  margin-bottom: 24px;
-  margin-right: 16px;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: transform .25s ease;
-  border: ${props => (props.outlined ? `1.5px solid ${props.background}` : 'none')};
-`;
-
-StyledButton.defaultProps = {
-  background: '#ff5a5f',
-  color: '#FFF',
-  outlined: false,
-};
-
-StyledButton.propTypes = {
-  background: propTypes.string,
-  color: propTypes.string,
-  outlined: propTypes.boolean,
-};
 
 export default class ChangeCursor extends Component {
   constructor(props) {
@@ -57,9 +32,9 @@ export default class ChangeCursor extends Component {
   render() {
     return (
       <div>
-        <StyledButton onClick={this.increaseCursorStyle}>
+        <Button scaleOnHover large bold onClick={this.increaseCursorStyle}>
           Change cursor!
-        </StyledButton>
+        </Button>
         <Background>
           {
             [

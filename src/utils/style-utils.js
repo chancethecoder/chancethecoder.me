@@ -97,7 +97,7 @@ export const fadeOut = keyframes`
   }
 `;
 
-export const show = css`
+export const show = `
   visibility: visible;
   opacity: 1;
 
@@ -105,9 +105,17 @@ export const show = css`
   transition-delay: 0s;
 `;
 
-export const hide = css`
+export const hide = `
   visibility: hidden;
   opacity: 0;
 
   transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+`;
+
+export const scaleOnHover = `
+  transition: transform .25s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;

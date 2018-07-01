@@ -1,11 +1,18 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import propTypes from 'prop-types';
 import styled from 'styled-components';
 import { media, appearsOut } from 'utils/style-utils';
-import Grid from 'pages/components/Grid';
-import GridItem from 'pages/components/GridItem';
-import Wrapper from 'pages/components/Wrapper';
+import Grid from 'components/Grid';
+import GridItem from 'components/GridItem';
+import ButtonGroup from 'components/ButtonGroup';
+import NavButton from 'components/NavButton';
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  margin: auto;
+  padding: none;
+  min-height: 100vh;
+`;
 
 const Padder = styled.div`
   margin: 5rem auto 0;
@@ -52,33 +59,6 @@ const StyledParagraph = styled.p`
   `}
 `;
 
-const StyledNavLink = styled(NavLink)`
-  display: inline-block;
-  color: ${props => (props.outlined ? props.background : props.color)};
-  background: ${props => (props.outlined ? props.color : props.background)};
-  font-weight: bold;
-  font-size: 20px;
-  padding: 16px 64px;
-  margin-bottom: 24px;
-  margin-right: 16px;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: transform .25s ease;
-  border: ${props => (props.outlined ? `1.5px solid ${props.background}` : 'none')};
-`;
-
-StyledNavLink.defaultProps = {
-  background: '#ff5a5f',
-  color: '#FFF',
-  outlined: false,
-};
-
-StyledNavLink.propTypes = {
-  background: propTypes.string,
-  color: propTypes.string,
-  outlined: propTypes.boolean,
-};
-
 const Welcome = () => (
   <Wrapper>
     <Padder>
@@ -96,12 +76,14 @@ const Welcome = () => (
             </StyledParagraph>
           </ParagraphWrapper>
           <br />
-          <StyledNavLink exact to="/playground">
-            Explore
-          </StyledNavLink>
-          <StyledNavLink exact to="/profile" outlined>
-            It&apos;s me
-          </StyledNavLink>
+          <ButtonGroup>
+            <NavButton large bold scaleOnHover exact to="/playground">
+              Explore
+            </NavButton>
+            <NavButton large bold scaleOnHover outlined exact to="/profile">
+              It&apos;s me
+            </NavButton>
+          </ButtonGroup>
         </GridItem>
       </AnimatedGrid>
     </Padder>

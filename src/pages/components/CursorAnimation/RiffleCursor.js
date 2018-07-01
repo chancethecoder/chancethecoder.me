@@ -21,7 +21,7 @@ const Riffle = styled.div`
 
 const leavingSpringConfig = { stiffness: 60, damping: 15 };
 
-export default class RiffleCursor extends Component {
+class RiffleCursor extends Component {
   constructor(props) {
     super(props);
     this.state = { mouse: [], now: `t${0}` };
@@ -97,3 +97,5 @@ export default class RiffleCursor extends Component {
     );
   }
 }
+
+export default RiffleCursor;

@@ -19,7 +19,7 @@ const Ball = styled.div`
   position: absolute;
 `;
 
-export default class MovingBallCursor extends Component {
+class MovingBallCursor extends Component {
   constructor(props) {
     super(props);
     /* eslint-disable react/no-unused-state */
@@ -85,3 +85,5 @@ export default class MovingBallCursor extends Component {
     );
   }
 }
+
+export default MovingBallCursor;

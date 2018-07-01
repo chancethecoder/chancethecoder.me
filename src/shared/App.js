@@ -1,24 +1,8 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Switch } from 'react-router-dom';
 import { MainLayout, PlaygroundLayout } from 'layouts';
 import { Welcome, Profile, Playground, NotFound } from 'pages';
-
-function RouteWithLayout({ layout, component, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        React.createElement(layout, props, React.createElement(component, props))
-      }
-    />
-  );
-}
-
-RouteWithLayout.propTypes = {
-  layout: PropTypes.func.isRequired,
-  component: PropTypes.func.isRequired,
-};
+import RouteWithLayout from 'layouts/components/RouteWithLayout';
 
 const App = () => (
   <Switch>
