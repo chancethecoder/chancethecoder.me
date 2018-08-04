@@ -1,29 +1,29 @@
 import styled from 'styled-components';
 import propTypes from 'prop-types';
-import { media } from 'utils/style-utils';
 
 const Grid = styled.div`
   display: grid;
   width: ${props => props.width};
-  margin: auto;
-  padding: 1.5rem;
+  margin: ${props => props.padding};
+  padding: ${props => props.padding};
+  grid-template-rows: ${props => props.gridTemplateRows};
   grid-template-columns: ${props => props.gridTemplateColumns};
-
-  ${media.min.laptop`
-    align-items: center;
-    overflow-x: hidden;
-    padding: 8vh 8vw 8vh;
-  `}
 `;
 
 Grid.defaultProps = {
-  gridTemplateColumns: 'repeat(24, 1fr)',
+  gridTemplateColumns: 'auto',
+  gridTemplateRows: 'auto',
+  padding: '1.5rem',
+  margin: 'auto',
   width: 'auto',
 };
 
 Grid.propTypes = {
-  gridTemplateColumns: propTypes.string,
+  padding: propTypes.string,
+  margin: propTypes.string,
   width: propTypes.string,
+  gridTemplateColumns: propTypes.string,
+  gridTemplateRows: propTypes.string,
 };
 
 export default Grid;

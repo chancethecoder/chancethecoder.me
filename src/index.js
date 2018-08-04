@@ -1,64 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { injectGlobal } from 'styled-components';
-import 'normalize.css';
-
+import { AppContainer } from 'react-hot-loader';
 import Root from './client/Root';
+import configureStore, { history } from './store/configureStore';
 import registerServiceWorker from './registerServiceWorker';
 
-/* eslint no-unused-expressions: 0 */
-injectGlobal`
-  @font-face {
-    font-family: Cereal;
-    font-weight: 300;
-    src: url('./assets/fonts/AirbnbCereal-Light.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: Cereal;
-    font-weight: 400;
-    src: url('./assets/fonts/AirbnbCereal-Book.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: Cereal;
-    font-weight: 500;
-    src: url('./assets/fonts/AirbnbCereal-Medium.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: Cereal;
-    font-weight: 600;
-    src: url('./assets/fonts/AirbnbCereal-Bold.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: Cereal;
-    font-weight: 700;
-    src: url('./assets/fonts/AirbnbCereal-ExtraBold.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: Cereal;
-    font-weight: 800;
-    src: url('./assets/fonts/AirbnbCereal-Black.ttf') format('truetype');
-  }
+const store = configureStore();
 
-  html,
-  p,
-  a,
-  span,
-  button {
-    font: 400 16px/1.7 Cereal,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  }
+ReactDOM.render(
+  <AppContainer>
+    <Root store={store} history={history} />
+  </AppContainer>,
+  document.getElementById('root'),
+);
 
-  * {
-    box-sizing: border-box;
-  }
+if (module.hot) {
+  module.hot.accept('./client/Root', () => {
+    /* eslint-disable global-require */
+    const NewRoot = require('./client/Root').default;
+    ReactDOM.render(
+      <AppContainer>
+        <NewRoot store={store} history={history} />
+      </AppContainer>,
+      document.getElementById('root'),
+    );
+  });
+}
 
-  h1, h2, h3, p {
-    margin: 0;
-  }
-
-  a {
-    text-decoration: none;
-  }
-`;
-
-ReactDOM.render(<Root />, document.getElementById('root'));
 registerServiceWorker();

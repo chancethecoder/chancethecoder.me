@@ -47,7 +47,7 @@ const StyledParagraph = styled.p`
   `}
 `;
 
-const Welcome = () => (
+const Project = () => (
   <Grid
     width="100vw"
     padding="0"
@@ -56,23 +56,13 @@ const Welcome = () => (
     <AnimatedGrid>
       <GridItem column="1/span 24" row="1">
         <GridItem column="1/span 16">
-          <StyledHeader id="welcome">
-            Welcome!
+          <StyledHeader id="project">
+            project
           </StyledHeader>
         </GridItem>
         <ParagraphWrapper>
           <StyledParagraph>
-            Hi. My name is Youngkyun Kim, a web developer based in South Korea.
-          </StyledParagraph>
-          <StyledParagraph>
-            I am a programmer who can proudly call myself an enthusiast.
-          </StyledParagraph>
-          <StyledParagraph>
-            I like climbing, traveling and most of all I want to do my job well.
-          </StyledParagraph>
-          <StyledParagraph>
-            Do you want to know me?
-            Let&apos;s go to the next step.
+            my projects
           </StyledParagraph>
         </ParagraphWrapper>
       </GridItem>
@@ -80,4 +70,4 @@ const Welcome = () => (
   </Grid>
 );
 
-export default Welcome;
+export default Project;

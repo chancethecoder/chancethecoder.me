@@ -23,13 +23,24 @@ const largeSize = css`
   border-width: 1.5px;
 `;
 
+const blockSize = css`
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+`;
+
 const setSizeAttributes = props => css`
   ${props.small && smallSize}
   ${props.medium && mediumSize}
   ${props.large && largeSize}
+  ${props.block && blockSize}
 `;
 
-const Button = styled.button`
+const Button = styled.button.attrs({
+  className: 'ant-btn',
+})`
   display: inline-block;
   cursor: pointer;
   border-style: solid;
@@ -50,8 +61,8 @@ const Button = styled.button`
 `;
 
 Button.defaultProps = {
-  background: '#ff5a5f',
-  color: '#fff',
+  background: '#fff',
+  color: 'rgba(0,0,0,.65)',
 };
 
 Button.propTypes = {

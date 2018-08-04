@@ -1,2 +1,3 @@
-export { default as MainLayout } from './MainLayout';
-export { default as PlaygroundLayout } from './PlaygroundLayout';
+import MainLayout from './MainLayout';
+
+export default MainLayout;

@@ -1,17 +1,37 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import Menu from 'layouts/components/Menu';
+import styled from 'styled-components';
+
+import {
+  BackTop,
+} from 'antd';
+
+import {
+  Sider,
+  Top,
+} from 'components';
+
+const Wrapper = styled.div`
+  display: flex;
+  min-height: 100vh;
+  margin: auto;
+  padding: 1.5rem 2.5rem;
+`;
 
 const MainLayout = props => (
-  <main>
+  <Fragment>
     <Helmet>
-      <title>Main | Chancethecoder</title>
+      <title>Home</title>
       <meta name="description" content="chancethecoder's website" />
     </Helmet>
-    <Menu />
-    {props.children}
-  </main>
+    <Top />
+    <Wrapper>
+      <Sider />
+      {props.children}
+    </Wrapper>
+    <BackTop />
+  </Fragment>
 );
 
 MainLayout.propTypes = {
