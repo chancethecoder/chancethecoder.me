@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { media } from 'utils/style-utils';
 
@@ -20,28 +21,34 @@ const StyledParagraph = styled.p`
 `;
 
 const Project = () => (
-  <Grid
-    padding="0"
-    margin="0"
-  >
-    <AnimatedGrid
-      padding="1.5rem"
-      margin="1.5rem"
+  <Fragment>
+    <Helmet>
+      <title>Project</title>
+      <meta name="description" content="chancethecoder's website" />
+    </Helmet>
+    <Grid
+      padding="0"
+      margin="0"
     >
-      <GridItem column="1/span 24" row="1">
-        <GridItem column="1/span 16">
-          <H1 id="project">
+      <AnimatedGrid
+        padding="1.5rem"
+        margin="1.5rem"
+      >
+        <GridItem column="1/span 24" row="1">
+          <GridItem column="1/span 16">
+            <H1 id="project">
             project
-          </H1>
-        </GridItem>
-        <GridItem>
-          <StyledParagraph>
+            </H1>
+          </GridItem>
+          <GridItem>
+            <StyledParagraph>
             my projects
-          </StyledParagraph>
+            </StyledParagraph>
+          </GridItem>
         </GridItem>
-      </GridItem>
-    </AnimatedGrid>
-  </Grid>
+      </AnimatedGrid>
+    </Grid>
+  </Fragment>
 );
 
 export default Project;

@@ -4,12 +4,20 @@ import styled from 'styled-components';
 import {
   Menu,
 } from 'antd';
+import { media } from 'utils/style-utils';
 
 const Wrapper = styled.div`
   display: block;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   min-width: 20%;
+  border-right: 1px solid #e8e8e8;
+
+  ${media.max.tablet`
+    border-right: none;
+    border-bottom: 1px solid #e8e8e8;
+    margin-bottom: 1rem;
+  `}
 `;
 
 const StyledLink = styled(NavLink)`

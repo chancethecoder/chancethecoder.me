@@ -33,7 +33,7 @@ const Content = styled.div`
 const MainLayout = props => (
   <Fragment>
     <Helmet>
-      <title>Home</title>
+      <title>Main</title>
       <meta name="description" content="chancethecoder's website" />
     </Helmet>
     <Top />

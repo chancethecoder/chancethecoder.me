@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { media } from 'utils/style-utils';
 
@@ -28,6 +29,10 @@ const StyledParagraph = styled.p`
 
 const About = () => (
   <Fragment>
+    <Helmet>
+      <title>About</title>
+      <meta name="description" content="chancethecoder's website" />
+    </Helmet>
     <Grid
       padding="0"
       margin="0"
