@@ -33,7 +33,7 @@ class MainLayout extends Component {
 
     this.state = {
       collapsed: false,
-      isDesktop: false,
+      isLaptop: false,
     };
 
     this.toggle = this.toggle.bind(this);
@@ -50,7 +50,7 @@ class MainLayout extends Component {
   }
 
   updatePredicate() {
-    this.setState({ isDesktop: window.innerWidth > 768 });
+    this.setState({ isLaptop: window.innerWidth > 768 });
   }
 
   toggle() {
@@ -75,7 +75,7 @@ class MainLayout extends Component {
           <HomeLink to="/">chancethecoder.me</HomeLink>
           <FloatRight>
             {
-              !this.state.isDesktop && <Button
+              !this.state.isLaptop && <Button
                 onClick={this.toggle}
                 type="primary"
                 shape="circle"
@@ -87,16 +87,14 @@ class MainLayout extends Component {
         <Layout
           style={{
             background: 'none',
-            padding: '1.5rem 2.5rem',
+            padding: this.state.isLaptop ? '1.5rem 2.5rem' : '0.5rem',
           }}
         >
           <Sider
             breakpoint="md"
             collapsedWidth="0"
-            onBreakpoint={(broken) => { console.log(broken); }}
             trigger={null}
-            collapsed={this.state.collapsed}
-            onCollapse={(collapsed) => { this.setState({ collapsed }); }}
+            collapsed={this.isLaptop || this.state.collapsed}
             style={{
               background: 'none',
             }}

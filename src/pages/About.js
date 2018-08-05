@@ -38,34 +38,34 @@ const About = () => (
           <H1 id="profile">profile</H1>
           <H3>Personal</H3>
           <Row>
-            <Col span={12}>
+            <Col lg={12} sm={24}>
               <DescriptionItem title="Name" content="Youngkyun Kim / 김영균" />
             </Col>
           </Row>
           <Row>
-            <Col span={12}>
+            <Col lg={12} sm={24}>
               <DescriptionItem title="City" content="Seoul" />
             </Col>
-            <Col span={12}>
+            <Col lg={12} sm={24}>
               <DescriptionItem title="Country" content="South Korea" />
             </Col>
           </Row>
           <Row>
-            <Col span={12}>
+            <Col lg={12} sm={24}>
               <DescriptionItem title="Birth" content="May 16, 1992" />
             </Col>
-            <Col span={12}>
+            <Col lg={12} sm={24}>
               <DescriptionItem title="Sex" content="male" />
             </Col>
           </Row>
           <Row>
-            <Col span={12}>
+            <Col lg={12} sm={24}>
               <DescriptionItem
                 title="Handle"
                 content="chancethecoder"
               />
             </Col>
-            <Col span={12}>
+            <Col lg={12} sm={24}>
               <DescriptionItem
                 title="Website"
                 content="https://chancethecoder.me"
@@ -75,15 +75,15 @@ const About = () => (
           <Divider />
           <H3>Company</H3>
           <Row>
-            <Col span={12}>
+            <Col lg={12} sm={24}>
               <DescriptionItem title="Name" content="Interpark" />
             </Col>
           </Row>
           <Row>
-            <Col span={12}>
+            <Col lg={12} sm={24}>
               <DescriptionItem title="Department" content="Data Platform Research" />
             </Col>
-            <Col span={12}>
+            <Col lg={12} sm={24}>
               <DescriptionItem title="Position" content="Data Engineer / Programmer" />
             </Col>
           </Row>
@@ -102,10 +102,10 @@ const About = () => (
           <Divider />
           <H3>Contacts</H3>
           <Row>
-            <Col span={12}>
+            <Col lg={12} sm={24}>
               <DescriptionItem title="Email" content="chancethecoder@gmail.com" />
             </Col>
-            <Col span={12}>
+            <Col lg={12} sm={24}>
               <DescriptionItem title="Phone" content="+82 10 2836 7558" />
             </Col>
           </Row>
