@@ -9,7 +9,9 @@ import {
   NotFound,
 } from 'pages';
 import RouteWithLayout from 'components/RouteWithLayout';
-import './global-style';
+import 'normalize.css';
+import 'antd/dist/antd.css';
+import './App.css';
 
 const App = () => (
   <Switch>
