@@ -95,9 +95,6 @@ class MainLayout extends Component {
             collapsedWidth="0"
             trigger={null}
             collapsed={this.isLaptop || this.state.collapsed}
-            style={{
-              background: 'none',
-            }}
           >
             <Menu
               mode="inline"
