@@ -1,23 +1,27 @@
 import styled from 'styled-components';
 import propTypes from 'prop-types';
+import { appearsOut } from 'utils/style-utils';
 
-const Grid = styled.div`
+const AnimatedGrid = styled.div`
   display: grid;
   width: ${props => props.width};
   margin: ${props => props.margin};
   padding: ${props => props.padding};
   grid-template-rows: ${props => props.gridTemplateRows};
   grid-template-columns: ${props => props.gridTemplateColumns};
+
+  opacity: 0;
+  animation: ${appearsOut} .55s forwards .15s;
 `;
 
-Grid.defaultProps = {
+AnimatedGrid.defaultProps = {
   gridTemplateColumns: 'auto',
   gridTemplateRows: 'auto',
   padding: '1.5rem',
   margin: 'auto',
 };
 
-Grid.propTypes = {
+AnimatedGrid.propTypes = {
   padding: propTypes.string,
   margin: propTypes.string,
   width: propTypes.string,
@@ -25,4 +29,4 @@ Grid.propTypes = {
   gridTemplateRows: propTypes.string,
 };
 
-export default Grid;
+export default AnimatedGrid;

@@ -1,8 +1,14 @@
+export { default as AnimatedGrid } from './AnimatedGrid';
 export { default as Button } from './Button';
 export { default as ButtonGroup } from './ButtonGroup';
+export { default as FixedPageNav } from './FixedPageNav';
 export { default as Flex } from './Flex';
 export { default as Grid } from './Grid';
 export { default as GridItem } from './GridItem';
+export { default as H1 } from './Heading/H1';
+export { default as H2 } from './Heading/H2';
+export { default as H3 } from './Heading/H3';
+export { default as H4 } from './Heading/H4';
 export { default as HomeButton } from './HomeButton';
 export { default as List } from './List';
 export { default as ListItem } from './ListItem';

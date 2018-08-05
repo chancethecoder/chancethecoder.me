@@ -1,46 +1,20 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import { media, appearsOut } from 'utils/style-utils';
+import { media } from 'utils/style-utils';
 
 import {
-  Affix,
+  Icon,
   Timeline,
 } from 'antd';
 
 import {
+  AnimatedGrid,
+  FixedPageNav,
+  Flex,
   Grid,
   GridItem,
+  H1,
 } from 'components';
-
-const AnimatedGrid = styled(Grid)`
-  opacity: 0;
-  animation: ${appearsOut} .55s forwards .15s;
-  min-height: 60vh;
-`;
-
-const ParagraphWrapper = styled(GridItem)`
-  ${media.min.desktop`
-    grid-column: 1 / span 14;
-  `}
-
-  ${media.min.laptop`
-    grid-column: 1 / span 18;
-  `}
-`;
-
-const StyledHeader = styled.h1`
-  font-weight: 700;
-  font-size: 13vw;
-  letter-spacing: -1.4px;
-  line-height: 1.1;
-  display: block;
-  margin-bottom: 0.75em;
-
-  ${media.min.tablet`
-    font-size: 5.5vw;
-    letter-spacing: -0.02em;
-  `}
-`;
 
 const StyledParagraph = styled.p`
   margin-bottom: 1em;
@@ -52,94 +26,100 @@ const StyledParagraph = styled.p`
   `}
 `;
 
-const SectionList = styled.ul`
-  padding-left: 0;
-  list-style: none;
-  font-size: 12px;
-  margin: 16px 0;
-  border-left: 1px solid #ebedf0;
-`;
-
-const SectionListItem = styled.ul`
-  padding-left: 0;
-  list-style: none;
-  line-height: 1.5;
-  
-  :not(:last-child) {
-    margin-bottom: 4px;
-  }
-`;
-
-const SectionNav = styled.a`
-  padding-left: 16px;
-  display: block;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #314659;
-  width: 110px;
-  font-size: 14px;
-  border-left: 1px solid transparent;
-  margin-left: -1px;
-`;
-
 const About = () => (
   <Fragment>
     <Grid
-      width="100vw"
       padding="0"
       margin="0"
     >
-      <AnimatedGrid>
+      <AnimatedGrid
+        padding="1.5rem"
+        margin="1.5rem"
+      >
         <GridItem column="1/span 24" row="1">
           <GridItem column="1/span 16">
-            <StyledHeader id="chancethecoder">
-            chancethecoder
-            </StyledHeader>
+            <H1 id="handle">
+              chancethecoder
+            </H1>
           </GridItem>
-          <ParagraphWrapper>
+          <GridItem>
             <StyledParagraph>
-            is my handle.
+              is my handle.
             </StyledParagraph>
             <StyledParagraph>
-            It does not mean anything, it just comes from the name of some rapper.
+              It does not mean anything, it just comes from the name of some rapper.
             </StyledParagraph>
-          </ParagraphWrapper>
+          </GridItem>
         </GridItem>
       </AnimatedGrid>
-      <AnimatedGrid>
+      <AnimatedGrid
+        padding="1.5rem"
+        margin="1.5rem"
+      >
         <GridItem column="1/span 24" row="1">
           <GridItem column="1/span 16">
-            <StyledHeader id="life-history">
-            Life history
-            </StyledHeader>
+            <H1 id="history">
+              Life history
+            </H1>
           </GridItem>
-          <ParagraphWrapper>
+          <GridItem>
             <Timeline>
-              <Timeline.Item>Born in Seung-nam, South Korea 1992-05</Timeline.Item>
-              <Timeline.Item>Studied Media department in Ajou Univ. 2011-03</Timeline.Item>
-              <Timeline.Item>Serve military service 2013-01</Timeline.Item>
-              <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
+              <Timeline.Item>
+                <h4>2017-05 ~</h4>
+                <p>Working from Interpark as Data engineer</p>
+              </Timeline.Item>
+              <Timeline.Item>
+                <h4>2017-02</h4>
+                <p>University graduation</p>
+              </Timeline.Item>
+              <Timeline.Item>
+                <h4>2016-02</h4>
+                <p>Web/Android development part-time job in Moeunnet</p>
+              </Timeline.Item>
+              <Timeline.Item>
+                <h4>2013-01</h4>
+                <p>Served military service</p>
+              </Timeline.Item>
+              <Timeline.Item>
+                <h4>2011-03</h4>
+                <p>Majored in Media Department at Ajou university</p>
+              </Timeline.Item>
+              <Timeline.Item
+                dot={<Icon type="heart-o" style={{ fontSize: '0.75rem' }} />}
+                color="red"
+              >
+                <h4>1992-05</h4>
+                <p>Born in Seoung-nam, South Korea</p>
+              </Timeline.Item>
             </Timeline>
-          </ParagraphWrapper>
+          </GridItem>
+        </GridItem>
+      </AnimatedGrid>
+      <AnimatedGrid
+        padding="1.5rem"
+        margin="1.5rem"
+      >
+        <GridItem column="1/span 24" row="1">
+          <GridItem column="1/span 16">
+            <H1 id="interest">
+              Interest &amp; Favorite
+            </H1>
+          </GridItem>
+          <GridItem>
+            hobby here
+          </GridItem>
         </GridItem>
       </AnimatedGrid>
     </Grid>
-    <Affix offsetTop={10}>
-      <SectionList>
-        <SectionListItem>
-          <SectionNav href="#chancethecoder">chancethecoder</SectionNav>
-        </SectionListItem>
-        <SectionListItem>
-          <SectionNav href="#life-history">Life history</SectionNav>
-        </SectionListItem>
-        <SectionListItem>
-          <SectionNav href="#etc">etc</SectionNav>
-        </SectionListItem>
-      </SectionList>
-    </Affix>
+    <Flex>
+      <FixedPageNav
+        items={[
+          { key: 'handle', href: '#handle', name: 'handle' },
+          { key: 'history', href: '#history', name: 'history' },
+          { key: 'interest', href: '#interest', name: 'interest' },
+        ]}
+      />
+    </Flex>
   </Fragment>
 );
 

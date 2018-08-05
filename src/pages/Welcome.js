@@ -1,41 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media, appearsOut } from 'utils/style-utils';
+import { media } from 'utils/style-utils';
 
 import {
+  AnimatedGrid,
   Grid,
   GridItem,
+  H1,
 } from 'components';
-
-const AnimatedGrid = styled(Grid)`
-  opacity: 0;
-  animation: ${appearsOut} .55s forwards .15s;
-  min-height: 60vh;
-`;
-
-const ParagraphWrapper = styled(GridItem)`
-  ${media.min.desktop`
-    grid-column: 1 / span 14;
-  `}
-
-  ${media.min.laptop`
-    grid-column: 1 / span 18;
-  `}
-`;
-
-const StyledHeader = styled.h1`
-  font-weight: 700;
-  font-size: 13vw;
-  letter-spacing: -1.4px;
-  line-height: 1.1;
-  display: block;
-  margin-bottom: 0.75em;
-
-  ${media.min.tablet`
-    font-size: 5.5vw;
-    letter-spacing: -0.02em;
-  `}
-`;
 
 const StyledParagraph = styled.p`
   margin-bottom: 1em;
@@ -49,20 +21,22 @@ const StyledParagraph = styled.p`
 
 const Welcome = () => (
   <Grid
-    width="100vw"
     padding="0"
     margin="0"
   >
-    <AnimatedGrid>
+    <AnimatedGrid
+      padding="1.5rem"
+      margin="1.5rem"
+    >
       <GridItem column="1/span 24" row="1">
         <GridItem column="1/span 16">
-          <StyledHeader id="welcome">
+          <H1 id="welcome">
             Welcome!
-          </StyledHeader>
+          </H1>
         </GridItem>
-        <ParagraphWrapper>
+        <GridItem>
           <StyledParagraph>
-            Hi. My name is Youngkyun Kim, a web developer based in South Korea.
+            Hi. My name is Youngkyun Kim, a developer based in South Korea.
           </StyledParagraph>
           <StyledParagraph>
             I am a programmer who can proudly call myself an enthusiast.
@@ -74,7 +48,7 @@ const Welcome = () => (
             Do you want to know me?
             Let&apos;s go to the next step.
           </StyledParagraph>
-        </ParagraphWrapper>
+        </GridItem>
       </GridItem>
     </AnimatedGrid>
   </Grid>
