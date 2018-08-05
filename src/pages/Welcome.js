@@ -24,22 +24,16 @@ const Welcome = () => (
         margin="1.5rem"
       >
         <GridItem column="1/span 24" row="1">
-          <GridItem column="1/span 16">
-            <H1 id="welcome">
-              Welcome!
-            </H1>
-          </GridItem>
-          <GridItem>
-            <Paragraph>
+          <H1 id="welcome">Welcome!</H1>
+          <Paragraph>
               Hi. My name is Youngkyun Kim, a developer based in South Korea.
-            </Paragraph>
-            <Paragraph>
+          </Paragraph>
+          <Paragraph>
               I am a programmer who can proudly call myself an enthusiast.
-            </Paragraph>
-            <Paragraph>
+          </Paragraph>
+          <Paragraph>
               Let&apos;s go to the next step.
-            </Paragraph>
-          </GridItem>
+          </Paragraph>
         </GridItem>
       </AnimatedGrid>
     </Grid>
