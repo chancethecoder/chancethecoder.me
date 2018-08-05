@@ -1,24 +1,13 @@
 import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
-import { media } from 'utils/style-utils';
 
 import {
   AnimatedGrid,
   Grid,
   GridItem,
   H1,
+  Paragraph,
 } from 'components';
-
-const StyledParagraph = styled.p`
-  margin-bottom: 1em;
-  font-size: 1rem;
-  line-height: 1.2;
-
-  ${media.min.laptop`
-    font-size: 1.25rem;
-  `}
-`;
 
 const Welcome = () => (
   <Fragment>
@@ -41,15 +30,15 @@ const Welcome = () => (
             </H1>
           </GridItem>
           <GridItem>
-            <StyledParagraph>
+            <Paragraph>
               Hi. My name is Youngkyun Kim, a developer based in South Korea.
-            </StyledParagraph>
-            <StyledParagraph>
+            </Paragraph>
+            <Paragraph>
               I am a programmer who can proudly call myself an enthusiast.
-            </StyledParagraph>
-            <StyledParagraph>
+            </Paragraph>
+            <Paragraph>
               Let&apos;s go to the next step.
-            </StyledParagraph>
+            </Paragraph>
           </GridItem>
         </GridItem>
       </AnimatedGrid>

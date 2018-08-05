@@ -1,26 +1,15 @@
 import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
-import { media } from 'utils/style-utils';
 
 import {
   AnimatedGrid,
-  FixedPageNav,
   Flex,
+  FragmentNav,
   Grid,
   GridItem,
   H1,
+  Paragraph,
 } from 'components';
-
-const StyledParagraph = styled.p`
-  margin-bottom: 1em;
-  font-size: 1rem;
-  line-height: 1.2;
-
-  ${media.min.laptop`
-    font-size: 1.25rem;
-  `}
-`;
 
 const Skill = () => (
   <Fragment>
@@ -43,9 +32,9 @@ const Skill = () => (
             </H1>
           </GridItem>
           <GridItem>
-            <StyledParagraph>
+            <Paragraph>
               javascript, ruby, python, c, java
-            </StyledParagraph>
+            </Paragraph>
           </GridItem>
         </GridItem>
       </AnimatedGrid>
@@ -60,9 +49,9 @@ const Skill = () => (
             </H1>
           </GridItem>
           <GridItem>
-            <StyledParagraph>
+            <Paragraph>
               ruby on rails, node, react, flask, spring
-            </StyledParagraph>
+            </Paragraph>
           </GridItem>
         </GridItem>
       </AnimatedGrid>
@@ -77,15 +66,15 @@ const Skill = () => (
             </H1>
           </GridItem>
           <GridItem>
-            <StyledParagraph>
+            <Paragraph>
               aws, jenkins, docker
-            </StyledParagraph>
+            </Paragraph>
           </GridItem>
         </GridItem>
       </AnimatedGrid>
     </Grid>
     <Flex>
-      <FixedPageNav
+      <FragmentNav
         items={[
           { key: 'language', href: '#language', name: 'language' },
           { key: 'framework', href: '#framework', name: 'framework' },

@@ -1,24 +1,13 @@
 import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
-import { media } from 'utils/style-utils';
 
 import {
   AnimatedGrid,
   Grid,
   GridItem,
   H1,
+  Paragraph,
 } from 'components';
-
-const StyledParagraph = styled.p`
-  margin-bottom: 1em;
-  font-size: 1rem;
-  line-height: 1.2;
-
-  ${media.min.laptop`
-    font-size: 1.25rem;
-  `}
-`;
 
 const Project = () => (
   <Fragment>
@@ -41,9 +30,9 @@ const Project = () => (
             </H1>
           </GridItem>
           <GridItem>
-            <StyledParagraph>
-            my projects
-            </StyledParagraph>
+            <Paragraph>
+              my projects
+            </Paragraph>
           </GridItem>
         </GridItem>
       </AnimatedGrid>
