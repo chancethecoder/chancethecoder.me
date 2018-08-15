@@ -3,9 +3,6 @@ import { Switch } from 'react-router-dom';
 import MainLayout from 'layouts';
 import {
   Welcome,
-  About,
-  Skill,
-  Project,
   Portfolio,
   NotFound,
 } from 'pages';
@@ -17,9 +14,6 @@ import './App.css';
 const App = () => (
   <Switch>
     <RouteWithLayout exact path="/" layout={MainLayout} component={Welcome} />
-    <RouteWithLayout exact path="/about" layout={MainLayout} component={About} />
-    <RouteWithLayout exact path="/skill" layout={MainLayout} component={Skill} />
-    <RouteWithLayout exact path="/project" layout={MainLayout} component={Project} />
     <RouteWithLayout exact path="/portfolio" layout={MainLayout} component={Portfolio} />
     <RouteWithLayout layout={MainLayout} component={NotFound} />
   </Switch>

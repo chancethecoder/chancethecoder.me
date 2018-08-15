@@ -1,26 +1,38 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import {
   BackTop,
-  Button,
   Layout,
   Menu,
 } from 'antd';
+
+import * as actions from 'actions/screenResizeActions';
 
 const {
   Header, Content, Footer,
 } = Layout;
 
+const BaseLayout = styled(Layout)`
+  background: none !important;
+  min-height: 100vh;
+`;
+
+const StyledHeader = styled(Header)`
+  display: flex;
+  justify-content: space-between;
+  background: none !important;
+  box-shadow: 0 2px 8px #f0f1f2;
+`;
+
 const HomeLink = styled(NavLink)`
   font: 600 0.85rem/1.5 Cereal, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
   color: rgb(0, 0, 0, 0.85);
-`;
-
-const FloatRight = styled.div`
-  float: right;
+  line-height: 64px;
 `;
 
 const StyledLink = styled(NavLink)`
@@ -28,21 +40,24 @@ const StyledLink = styled(NavLink)`
   font-size: 1rem;
 `;
 
+const StyledContent = styled(Content)`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+const StyledFooter = styled(Footer)`
+  text-align: center;
+`;
+
 class MainLayout extends Component {
   constructor() {
     super();
 
-    this.state = {
-      collapsed: false,
-      isLaptop: false,
-    };
-
-    this.toggle = this.toggle.bind(this);
     this.updatePredicate = this.updatePredicate.bind(this);
   }
 
   componentDidMount() {
-    this.updatePredicate();
     window.addEventListener('resize', this.updatePredicate);
   }
 
@@ -51,86 +66,65 @@ class MainLayout extends Component {
   }
 
   updatePredicate() {
-    this.setState({ isLaptop: window.innerWidth > 768 });
-  }
-
-  toggle() {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
+    this.props.actions.screenResize(window.innerWidth);
   }
 
   render() {
     return (
-      <Layout
-        style={{
-          background: 'none',
-          minHeight: '100vh',
-        }}
-      >
-        <Header
-          style={{
-            background: 'none',
-            boxShadow: '0 2px 8px #f0f1f2',
-          }}
-        >
+      <BaseLayout>
+        <StyledHeader>
           <HomeLink to="/">chancethecoder.me</HomeLink>
-          <FloatRight>
-            {
-              !this.state.isLaptop && <Button
-                onClick={this.toggle}
-                type="primary"
-                shape="circle"
-                icon={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-              />
-            }
-            <Menu
-              mode="horizontal"
-              selectedKeys={[window.location.pathname]}
-            >
-              <Menu.Item key="/portfolio">
-                <StyledLink to="/portfolio">portfolio</StyledLink>
-              </Menu.Item>
-            </Menu>
-          </FloatRight>
-        </Header>
+          <Menu
+            mode="horizontal"
+            selectedKeys={[window.location.pathname]}
+          >
+            <Menu.Item key="/portfolio">
+              <StyledLink to="/portfolio">portfolio</StyledLink>
+            </Menu.Item>
+          </Menu>
+        </StyledHeader>
         <Layout
           style={{
             background: 'none',
-            padding: this.state.isLaptop ? '2rem 26px' : '0.5rem',
+            padding: (this.props.screen.width > 768) ? '2rem 26px' : '0.5rem',
           }}
         >
-          <Layout
-            style={{
-              background: 'none',
-            }}
-          >
-            <Content
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                width: '100%',
-              }}
-            >
-              {this.props.children}
-            </Content>
-          </Layout>
+          <StyledContent>
+            {this.props.children}
+          </StyledContent>
         </Layout>
-        <Footer
-          style={{
-            textAlign: 'center',
-          }}
-        >
+        <StyledFooter>
           ©2018 Created by Youngkyun Kim
-        </Footer>
+        </StyledFooter>
         <BackTop />
-      </Layout>
+      </BaseLayout>
     );
   }
 }
 
 MainLayout.propTypes = {
   children: PropTypes.node.isRequired,
+  screen: PropTypes.shape({
+    width: PropTypes.number,
+  }).isRequired,
+  actions: PropTypes.shape({
+    screenResize: PropTypes.function,
+  }).isRequired,
 };
 
-export default MainLayout;
+function mapStateToProps(state) {
+  return {
+    screen: state.screen,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch),
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(MainLayout);
