@@ -11,11 +11,11 @@ import {
 } from 'antd';
 
 const {
-  Header, Content, Footer, Sider,
+  Header, Content, Footer,
 } = Layout;
 
 const HomeLink = styled(NavLink)`
-  font: 700 0.85rem/1.5 Cereal, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  font: 600 0.85rem/1.5 Cereal, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
   color: rgb(0, 0, 0, 0.85);
 `;
 
@@ -24,7 +24,8 @@ const FloatRight = styled.div`
 `;
 
 const StyledLink = styled(NavLink)`
-  line-height: 40px;
+  line-height: 64px;
+  font-size: 1rem;
 `;
 
 class MainLayout extends Component {
@@ -64,6 +65,7 @@ class MainLayout extends Component {
       <Layout
         style={{
           background: 'none',
+          minHeight: '100vh',
         }}
       >
         <Header
@@ -82,41 +84,22 @@ class MainLayout extends Component {
                 icon={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               />
             }
+            <Menu
+              mode="horizontal"
+              selectedKeys={[window.location.pathname]}
+            >
+              <Menu.Item key="/portfolio">
+                <StyledLink to="/portfolio">portfolio</StyledLink>
+              </Menu.Item>
+            </Menu>
           </FloatRight>
         </Header>
         <Layout
           style={{
             background: 'none',
-            padding: this.state.isLaptop ? '1.5rem 2.5rem' : '0.5rem',
+            padding: this.state.isLaptop ? '2rem 26px' : '0.5rem',
           }}
         >
-          <Sider
-            breakpoint="md"
-            collapsedWidth="0"
-            trigger={null}
-            collapsed={this.isLaptop || this.state.collapsed}
-          >
-            <Menu
-              mode="inline"
-              selectedKeys={[window.location.pathname]}
-              style={{
-                borderRight: 'none',
-              }}
-            >
-              <Menu.Item key="/">
-                <StyledLink to="/">welcome</StyledLink>
-              </Menu.Item>
-              <Menu.Item key="/about">
-                <StyledLink to="/about">about</StyledLink>
-              </Menu.Item>
-              <Menu.Item key="/skill">
-                <StyledLink to="/skill">skill</StyledLink>
-              </Menu.Item>
-              <Menu.Item key="/project">
-                <StyledLink to="/project">project</StyledLink>
-              </Menu.Item>
-            </Menu>
-          </Sider>
           <Layout
             style={{
               background: 'none',
@@ -127,7 +110,6 @@ class MainLayout extends Component {
                 display: 'flex',
                 justifyContent: 'space-between',
                 width: '100%',
-                minHeight: '100vh',
               }}
             >
               {this.props.children}

@@ -6,6 +6,7 @@ import {
   About,
   Skill,
   Project,
+  Portfolio,
   NotFound,
 } from 'pages';
 import RouteWithLayout from 'components/RouteWithLayout';
@@ -19,6 +20,7 @@ const App = () => (
     <RouteWithLayout exact path="/about" layout={MainLayout} component={About} />
     <RouteWithLayout exact path="/skill" layout={MainLayout} component={Skill} />
     <RouteWithLayout exact path="/project" layout={MainLayout} component={Project} />
+    <RouteWithLayout exact path="/portfolio" layout={MainLayout} component={Portfolio} />
     <RouteWithLayout layout={MainLayout} component={NotFound} />
   </Switch>
 );

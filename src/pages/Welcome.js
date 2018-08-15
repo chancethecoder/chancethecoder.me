@@ -26,13 +26,14 @@ const Welcome = () => (
         <GridItem column="1/span 24" row="1">
           <H1 id="welcome">Welcome!</H1>
           <Paragraph>
-              Hi. My name is Youngkyun Kim, a developer based in South Korea.
+            My name is Youngkyun Kim, a software engineer based in South Korea.
           </Paragraph>
           <Paragraph>
-              I am a programmer who can proudly call myself an enthusiast.
+            I am a person who is interested in cool things
+            and is currently developing data-driven services.
           </Paragraph>
           <Paragraph>
-              Let&apos;s go to the next step.
+            I hope my software can make a better world.
           </Paragraph>
         </GridItem>
       </AnimatedGrid>
