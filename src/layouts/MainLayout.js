@@ -7,11 +7,13 @@ import styled from 'styled-components';
 
 import {
   BackTop,
+  Button,
   Layout,
   Menu,
 } from 'antd';
 
-import * as actions from 'actions/screenResizeActions';
+import * as localeActions from 'actions/localeActions';
+import * as resizeActions from 'actions/resizeActions';
 
 const {
   Header, Content, Footer,
@@ -25,19 +27,20 @@ const BaseLayout = styled(Layout)`
 const StyledHeader = styled(Header)`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: none !important;
   box-shadow: 0 2px 8px #f0f1f2;
 `;
 
 const HomeLink = styled(NavLink)`
-  font: 600 0.85rem/1.5 Cereal, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  font-weight: 500;
   color: rgb(0, 0, 0, 0.85);
   line-height: 64px;
 `;
 
-const StyledLink = styled(NavLink)`
-  line-height: 64px;
-  font-size: 1rem;
+const HeaderRight = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const StyledContent = styled(Content)`
@@ -66,7 +69,7 @@ class MainLayout extends Component {
   }
 
   updatePredicate() {
-    this.props.actions.screenResize(window.innerWidth);
+    this.props.actions.resizeActions.screenResize(window.innerWidth);
   }
 
   render() {
@@ -74,14 +77,22 @@ class MainLayout extends Component {
       <BaseLayout>
         <StyledHeader>
           <HomeLink to="/">chancethecoder.me</HomeLink>
-          <Menu
-            mode="horizontal"
-            selectedKeys={[window.location.pathname]}
-          >
-            <Menu.Item key="/portfolio">
-              <StyledLink to="/portfolio">portfolio</StyledLink>
-            </Menu.Item>
-          </Menu>
+          <HeaderRight>
+            <Menu
+              mode="horizontal"
+              selectedKeys={[window.location.pathname]}
+              style={{
+                borderBottom: 'none',
+                marginRight: '16px',
+              }}
+            />
+            <Button
+              size="small"
+              onClick={this.props.actions.localeActions.toggleLocale}
+            >
+              {this.props.locale.lang}
+            </Button>
+          </HeaderRight>
         </StyledHeader>
         <Layout
           style={{
@@ -94,7 +105,7 @@ class MainLayout extends Component {
           </StyledContent>
         </Layout>
         <StyledFooter>
-          ©2018 Created by Youngkyun Kim
+          © 2018 by Youngkyun Kim
         </StyledFooter>
         <BackTop />
       </BaseLayout>
@@ -104,23 +115,21 @@ class MainLayout extends Component {
 
 MainLayout.propTypes = {
   children: PropTypes.node.isRequired,
-  screen: PropTypes.shape({
-    width: PropTypes.number,
-  }).isRequired,
-  actions: PropTypes.shape({
-    screenResize: PropTypes.function,
-  }).isRequired,
 };
 
 function mapStateToProps(state) {
   return {
     screen: state.screen,
+    locale: state.locale,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actions, dispatch),
+    actions: {
+      localeActions: bindActionCreators(localeActions, dispatch),
+      resizeActions: bindActionCreators(resizeActions, dispatch),
+    },
   };
 }
 

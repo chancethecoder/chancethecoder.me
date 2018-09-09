@@ -2,8 +2,7 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import MainLayout from 'layouts';
 import {
-  Welcome,
-  Portfolio,
+  Resume,
   NotFound,
 } from 'pages';
 import RouteWithLayout from 'components/RouteWithLayout';
@@ -13,8 +12,7 @@ import './App.css';
 
 const App = () => (
   <Switch>
-    <RouteWithLayout exact path="/" layout={MainLayout} component={Welcome} />
-    <RouteWithLayout exact path="/portfolio" layout={MainLayout} component={Portfolio} />
+    <RouteWithLayout exact path="/" layout={MainLayout} component={Resume} />
     <RouteWithLayout layout={MainLayout} component={NotFound} />
   </Switch>
 );
