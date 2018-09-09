@@ -1,14 +1,14 @@
 import { SET_LOCALE } from 'types/actionTypes';
 
 const initialState = {
-  locale: 'en',
+  lang: 'en',
 };
 
-export default function screenResizeReducer(state = initialState, action) {
+export default function localeReducer(state = initialState, action) {
   switch (action.type) {
     case SET_LOCALE:
       return Object.assign({}, state, {
-        locale: action.locale,
+        lang: state.lang === 'en' ? 'ko' : 'en',
       });
     default:
       return state;

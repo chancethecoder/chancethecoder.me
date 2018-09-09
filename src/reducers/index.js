@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import screenResizeReducer from './resizeReducer';
+import resizeReducer from './resizeReducer';
+import localeReducer from './localeReducer';
 
 const rootReducer = combineReducers({
   routing: routerReducer,
-  screen: screenResizeReducer,
+  screen: resizeReducer,
+  locale: localeReducer,
 });
 
 export default rootReducer;
