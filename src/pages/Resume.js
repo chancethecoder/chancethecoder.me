@@ -1,283 +1,199 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 
 import {
-  Icon,
-  Timeline,
   Row,
   Col,
   Divider,
 } from 'antd';
 
 import {
-  AnimatedGrid,
-  DescriptionItem,
-  FragmentNav,
-  Flex,
   Grid,
-  GridItem,
-  H1,
+  H2,
   H3,
+  H4,
+  List,
+  ListItem,
   Paragraph,
+  Section,
 } from 'components';
 
-const Portfolio = () => (
-  <Fragment>
-    <Helmet>
-      <title>chancethecoder&apos;s Portfolio</title>
-      <meta name="description" content="chancethecoder's website" />
-    </Helmet>
-    <Grid
-      padding="0"
-      margin="0"
-    >
-      <AnimatedGrid
-        padding="1.5rem"
-        margin="1.5rem"
-      >
-        <GridItem column="1/span 24" row="1">
-          <H1 id="welcome">Welcome!</H1>
-          <Paragraph>
-            My name is Youngkyun Kim, a software engineer based in South Korea.
-          </Paragraph>
-          <Paragraph>
-            I am a person who is interested in cool things
-            and is currently developing data-driven services.
-          </Paragraph>
-          <Paragraph>
-            I hope my software can make a better world.
-          </Paragraph>
-        </GridItem>
-      </AnimatedGrid>
-      <AnimatedGrid
-        padding="1.5rem"
-        margin="1.5rem"
-      >
-        <GridItem column="1/span 24" row="1">
-          <H1 id="profile">profile</H1>
-          <H3>Personal</H3>
-          <Row>
-            <Col lg={12} sm={24}>
-              <DescriptionItem title="Name" content="Youngkyun Kim / 김영균" />
-            </Col>
-          </Row>
-          <Row>
-            <Col lg={12} sm={24}>
-              <DescriptionItem title="City" content="Seoul" />
-            </Col>
-            <Col lg={12} sm={24}>
-              <DescriptionItem title="Country" content="South Korea" />
-            </Col>
-          </Row>
-          <Row>
-            <Col lg={12} sm={24}>
-              <DescriptionItem title="Birth" content="May 16, 1992" />
-            </Col>
-            <Col lg={12} sm={24}>
-              <DescriptionItem title="Sex" content="male" />
-            </Col>
-          </Row>
-          <Row>
-            <Col lg={12} sm={24}>
-              <DescriptionItem
-                title="Handle"
-                content="chancethecoder"
-              />
-            </Col>
-            <Col lg={12} sm={24}>
-              <DescriptionItem
-                title="Website"
-                content="https://chancethecoder.me"
-              />
-            </Col>
-          </Row>
-          <Divider />
-          <H3>Company</H3>
-          <Row>
-            <Col lg={12} sm={24}>
-              <DescriptionItem title="Name" content="Interpark" />
-            </Col>
-          </Row>
-          <Row>
-            <Col lg={12} sm={24}>
-              <DescriptionItem title="Department" content="Data Platform Research" />
-            </Col>
-            <Col lg={12} sm={24}>
-              <DescriptionItem title="Position" content="Data Engineer / Programmer" />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <DescriptionItem
-                title="Responsibilities"
-                content={
-                  <ul>
-                    <li>Develop BI(Business Intelligence) tools to provide insight</li>
-                    <li>Build/manage data pipeline for Big Data analysis</li>
-                  </ul>}
-              />
-            </Col>
-          </Row>
-          <Divider />
-          <H3>Contacts</H3>
-          <Row>
-            <Col lg={12} sm={24}>
-              <DescriptionItem title="Email" content="chancethecoder@gmail.com" />
-            </Col>
-            <Col lg={12} sm={24}>
-              <DescriptionItem title="Phone" content="+82 10 2836 7558" />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <DescriptionItem
-                title="Github"
-                content="github.com/chancethecoder"
-              />
-            </Col>
-          </Row>
-        </GridItem>
-      </AnimatedGrid>
-      <AnimatedGrid
-        padding="1.5rem"
-        margin="1.5rem"
-      >
-        <GridItem column="1/span 24" row="1">
-          <H1 id="history">Life history</H1>
-          <Timeline mode="alternate">
-            <Timeline.Item>
-              <h4>2017-05 ~</h4>
-              <p>Working from Interpark as Data engineer</p>
-            </Timeline.Item>
-            <Timeline.Item>
-              <h4>2017-02</h4>
-              <p>University graduation</p>
-            </Timeline.Item>
-            <Timeline.Item>
-              <h4>2016-02</h4>
-              <p>Web/Android development part-time job in Moeunnet</p>
-            </Timeline.Item>
-            <Timeline.Item>
-              <h4>2013-01</h4>
-              <p>Served military service</p>
-            </Timeline.Item>
-            <Timeline.Item>
-              <h4>2011-03</h4>
-              <p>Majored in Media Department at Ajou university</p>
-            </Timeline.Item>
-            <Timeline.Item
-              dot={<Icon type="heart-o" style={{ fontSize: '0.75rem' }} />}
-              color="red"
-            >
-              <h4>1992-05</h4>
-              <p>Born in Seoung-nam, South Korea</p>
-            </Timeline.Item>
-          </Timeline>
-        </GridItem>
-      </AnimatedGrid>
-      <AnimatedGrid
-        padding="1.5rem"
-        margin="1.5rem"
-      >
-        <GridItem column="1/span 24" row="1">
-          <H1 id="interest">Interest</H1>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to make
-          a type specimen book. It has survived not only five centuries,
-          but also the leap into electronic typesetting, remaining essentially unchanged.
-          It was popularised in the 1960s with the release of Letraset sheets
-          containing Lorem Ipsum passages, and more recently with desktop publishing
-          software like Aldus PageMaker including versions of Lorem Ipsum.
-        </GridItem>
-      </AnimatedGrid>
-      <AnimatedGrid
-        padding="1.5rem"
-        margin="1.5rem"
-      >
-        <GridItem column="1/span 24" row="1">
-          <H1 id="language">language</H1>
-          <Paragraph>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to make
-          a type specimen book. It has survived not only five centuries,
-          but also the leap into electronic typesetting, remaining essentially unchanged.
-          It was popularised in the 1960s with the release of Letraset sheets
-          containing Lorem Ipsum passages, and more recently with desktop publishing
-          software like Aldus PageMaker including versions of Lorem Ipsum.
-          </Paragraph>
-        </GridItem>
-      </AnimatedGrid>
-      <AnimatedGrid
-        padding="1.5rem"
-        margin="1.5rem"
-      >
-        <GridItem column="1/span 24" row="1">
-          <H1 id="framework">framework</H1>
-          <Paragraph>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to make
-          a type specimen book. It has survived not only five centuries,
-          but also the leap into electronic typesetting, remaining essentially unchanged.
-          It was popularised in the 1960s with the release of Letraset sheets
-          containing Lorem Ipsum passages, and more recently with desktop publishing
-          software like Aldus PageMaker including versions of Lorem Ipsum.
-          </Paragraph>
-        </GridItem>
-      </AnimatedGrid>
-      <AnimatedGrid
-        padding="1.5rem"
-        margin="1.5rem"
-      >
-        <GridItem column="1/span 24" row="1">
-          <H1 id="devops">devops</H1>
-          <Paragraph>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to make
-          a type specimen book. It has survived not only five centuries,
-          but also the leap into electronic typesetting, remaining essentially unchanged.
-          It was popularised in the 1960s with the release of Letraset sheets
-          containing Lorem Ipsum passages, and more recently with desktop publishing
-          software like Aldus PageMaker including versions of Lorem Ipsum.
-          </Paragraph>
-        </GridItem>
-      </AnimatedGrid>
-      <AnimatedGrid
-        padding="1.5rem"
-        margin="1.5rem"
-      >
-        <GridItem column="1/span 24" row="1">
-          <H1 id="project">project</H1>
-          <Paragraph>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to make
-          a type specimen book. It has survived not only five centuries,
-          but also the leap into electronic typesetting, remaining essentially unchanged.
-          It was popularised in the 1960s with the release of Letraset sheets
-          containing Lorem Ipsum passages, and more recently with desktop publishing
-          software like Aldus PageMaker including versions of Lorem Ipsum.
-          </Paragraph>
-        </GridItem>
-      </AnimatedGrid>
-    </Grid>
-    <Flex>
-      <FragmentNav
-        items={[
-          { key: 'profile', href: '#profile', name: 'profile' },
-          { key: 'history', href: '#history', name: 'history' },
-          { key: 'interest', href: '#interest', name: 'interest' },
-          { key: 'language', href: '#language', name: 'language' },
-          { key: 'framework', href: '#framework', name: 'framework' },
-          { key: 'devops', href: '#devops', name: 'devops' },
-          { key: 'project', href: '#project', name: 'project' },
-        ]}
-      />
-    </Flex>
-  </Fragment>
-);
+import * as tocActions from 'actions/tocActions';
 
-export default Portfolio;
+class Resume extends Component {
+  constructor(props) {
+    super(props);
+
+    this.tableOfContents = [
+      { key: 'introduce', name: 'introduce', active: false },
+      { key: 'skills', name: 'skills', active: false },
+      { key: 'experience', name: 'experience', active: false },
+      { key: 'education', name: 'education', active: false },
+      { key: 'language', name: 'language', active: false },
+    ];
+  }
+
+  componentDidMount() {
+    this.props.actions.tocActions.setContents(this.tableOfContents);
+  }
+
+  componentWillUnmount() {
+    this.props.actions.tocActions.setContents([]);
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <Helmet>
+          <title>Resume</title>
+          <meta name="description" content="chancethecoder's website" />
+        </Helmet>
+        <Grid
+          padding="1.5rem 3rem"
+        >
+          <Section id="introduce">
+            <H2 id="introduce">Youngkyun kim</H2>
+            <Paragraph>
+              I am software engineer based in South Korea.
+              As a data engineer, I have been working for more than a year.
+            </Paragraph>
+            <Paragraph>
+              I am currently interested in the hadoop ecosystem such as kafka, spark, etc.
+              but I am also interested in DevOps technologies and development of Front/Back-End.
+            </Paragraph>
+            <Paragraph>
+              I am usually lazy, but I like to challenge development and hobbies.
+              I personally think that development experience is important
+              in the working environment, and I am looking back at whether
+              I am doing something worthwhile, not technically biased development.
+            </Paragraph>
+          </Section>
+          <Divider />
+          <Section id="skills">
+            <H2 id="skills">SKILLS</H2>
+            <H4>Programming</H4>
+            <Paragraph>
+              Ruby, Python, Java, C, C++, Lua, Openresty, SQL, NoSQL, Shell<br />
+              Javascript(ES6+), HTML, CSS, LESS, SASS<br />
+              Rails, Node, React, Redux, Styled Component, Electron
+            </Paragraph>
+            <H4>Data Engineering</H4>
+            <Paragraph>
+              Kafka, D3
+            </Paragraph>
+            <H4>DevOps</H4>
+            <Paragraph>
+              Docker, Jenkins, Git
+            </Paragraph>
+            <H4>Design</H4>
+            <Paragraph>
+              Gimp, Photoshop, Illustrator
+            </Paragraph>
+          </Section>
+          <Divider />
+          <Section id="experience">
+            <H2 id="experience">WORK EXPERIENCE</H2>
+            <H3>Data Engineer</H3>
+            <H4>Interpark</H4>
+            <Row>
+              <span>05/2017 - current</span>
+            </Row>
+            <Row>
+              <Col lg={24}>
+                <List listStyleType="circle" padding="0 0 0 1rem">
+                  <ListItem>Develop user behavior tracking service</ListItem>
+                  <List listStyleType="circle" padding="0 0 0 2rem">
+                    <ListItem>
+                      Tagging based web log collection system
+                    </ListItem>
+                    <ListItem>
+                      Main skill: Openresty, Javascript, AWS, Kafka
+                    </ListItem>
+                  </List>
+                </List>
+                <List listStyleType="circle" padding="0 0 0 1rem">
+                  <ListItem>Develop statistics inquiry service</ListItem>
+                  <List listStyleType="circle" padding="0 0 0 2rem">
+                    <ListItem>
+                      In house web application providing statistical visualization
+                    </ListItem>
+                    <ListItem>
+                      Main skill: RubyOnRails, D3.js
+                    </ListItem>
+                  </List>
+                </List>
+                <List listStyleType="circle" padding="0 0 0 1rem">
+                  <ListItem>Develop Data pipeline</ListItem>
+                  <List listStyleType="circle" padding="0 0 0 2rem">
+                    <ListItem>
+                      Serving, receiving data with restful API or other protocol
+                    </ListItem>
+                    <ListItem>
+                      Main skill: Python
+                    </ListItem>
+                  </List>
+                </List>
+              </Col>
+            </Row>
+          </Section>
+          <Divider />
+          <Section id="education">
+            <H2 id="education">EDUCATION</H2>
+            <H3>Bachelor&apos;s degree in Media</H3>
+            <H4>Ajou University</H4>
+            <Row>
+              <span>03/2011 - 02/2017</span>
+            </Row>
+            <Row>
+              <span>Suwon, Korea</span>
+            </Row>
+          </Section>
+          <Divider />
+          <Section id="language">
+            <H2 id="language">LANGUAGE</H2>
+            <Row>
+              <Col lg={12}>
+                <H4>Korean</H4>
+                <span>Native</span>
+              </Col>
+              <Col lg={12}>
+                <H4>English</H4>
+                <span>Limited</span>
+              </Col>
+            </Row>
+          </Section>
+        </Grid>
+      </Fragment>
+    );
+  }
+}
+
+Resume.propTypes = {
+  actions: PropTypes.shape({
+    tocActions: PropTypes.shape({
+      setContents: PropTypes.func,
+    }).isRequired,
+  }).isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    tocTarget: state.tocTarget,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      tocActions: bindActionCreators(tocActions, dispatch),
+    },
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Resume);

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const H3 = styled.h3`
-  font-weight: 400;
-  margin-bottom: 0.75em;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  margin: 0.5em 0;
 `;
 
 export default H3;

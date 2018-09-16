@@ -15,3 +15,4 @@ export { default as ListItem } from './ListItem';
 export { default as NavButton } from './NavButton';
 export { default as Paragraph } from './Paragraph';
 export { default as RouteWithLayout } from './RouteWithLayout';
+export { default as Section } from './Section';

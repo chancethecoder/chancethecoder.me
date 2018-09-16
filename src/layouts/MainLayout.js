@@ -1,19 +1,24 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { media } from 'utils/style-utils';
 
 import {
+  Affix,
   BackTop,
-  Button,
   Layout,
-  Menu,
 } from 'antd';
 
-import * as localeActions from 'actions/localeActions';
-import * as resizeActions from 'actions/resizeActions';
+import {
+  TOC,
+  LocaleToggle,
+} from 'containers';
+
+import {
+  Grid,
+} from 'components';
 
 const {
   Header, Content, Footer,
@@ -33,6 +38,7 @@ const StyledHeader = styled(Header)`
 `;
 
 const HomeLink = styled(NavLink)`
+  font-size: 14px;
   font-weight: 500;
   color: rgb(0, 0, 0, 0.85);
   line-height: 64px;
@@ -43,97 +49,55 @@ const HeaderRight = styled.div`
   align-items: center;
 `;
 
-const StyledContent = styled(Content)`
+const Container = styled(Content)`
   display: flex;
   justify-content: space-between;
+  ${media.min.laptop`
+    width: 70%;
+  `}
+  align-self: center;
   width: 100%;
+  background: none;
 `;
 
 const StyledFooter = styled(Footer)`
   text-align: center;
 `;
 
-class MainLayout extends Component {
-  constructor() {
-    super();
-
-    this.updatePredicate = this.updatePredicate.bind(this);
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.updatePredicate);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updatePredicate);
-  }
-
-  updatePredicate() {
-    this.props.actions.resizeActions.screenResize(window.innerWidth);
-  }
-
-  render() {
-    return (
-      <BaseLayout>
-        <StyledHeader>
-          <HomeLink to="/">chancethecoder.me</HomeLink>
-          <HeaderRight>
-            <Menu
-              mode="horizontal"
-              selectedKeys={[window.location.pathname]}
-              style={{
-                borderBottom: 'none',
-                marginRight: '16px',
-              }}
-            />
-            <Button
-              size="small"
-              onClick={this.props.actions.localeActions.toggleLocale}
-            >
-              {this.props.locale.lang}
-            </Button>
-          </HeaderRight>
-        </StyledHeader>
-        <Layout
-          style={{
-            background: 'none',
-            padding: (this.props.screen.width > 768) ? '2rem 26px' : '0.5rem',
-          }}
-        >
-          <StyledContent>
-            {this.props.children}
-          </StyledContent>
-        </Layout>
-        <StyledFooter>
-          © 2018 by Youngkyun Kim
-        </StyledFooter>
-        <BackTop />
-      </BaseLayout>
-    );
-  }
-}
+const MainLayout = props => (
+  <BaseLayout>
+    <StyledHeader>
+      <HomeLink to="/">chancethecoder.me</HomeLink>
+      <HeaderRight>
+        <LocaleToggle size="small">
+          {props.locale.lang}
+        </LocaleToggle>
+      </HeaderRight>
+    </StyledHeader>
+    <Container>
+      {props.children}
+      <Grid margin="0">
+        <Affix offsetTop={10}>
+          <TOC />
+        </Affix>
+      </Grid>
+    </Container>
+    <StyledFooter>
+      © 2018 by Youngkyun Kim
+    </StyledFooter>
+    <BackTop />
+  </BaseLayout>
+);
 
 MainLayout.propTypes = {
   children: PropTypes.node.isRequired,
+  locale: PropTypes.shape({
+    lang: PropTypes.string,
+  }).isRequired,
 };
 
-function mapStateToProps(state) {
-  return {
-    screen: state.screen,
-    locale: state.locale,
-  };
-}
+const mapStateToProps = state => ({
+  locale: state.locale,
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      localeActions: bindActionCreators(localeActions, dispatch),
-      resizeActions: bindActionCreators(resizeActions, dispatch),
-    },
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(MainLayout);
+export default connect(mapStateToProps)(MainLayout);

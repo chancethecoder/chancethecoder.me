@@ -1,2 +1,3 @@
 export const SCREEN_RESIZE = 'SCREEN_RESIZE';
-export const SET_LOCALE = 'SET_LOCALE';
+export const TOGGLE_LOCALE = 'TOGGLE_LOCALE';
+export const SET_TOC_TARGET = 'SET_TOC_TARGET';

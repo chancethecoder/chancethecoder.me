@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
 const List = styled.ul`
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  list-style-type: ${props => props.listStyleType};
+  margin: ${props => props.margin};
+  padding: ${props => props.padding};
 `;
+
+List.defaultProps = {
+  listStyleType: 'none',
+  padding: '0',
+  margin: '0',
+};
 
 export default List;

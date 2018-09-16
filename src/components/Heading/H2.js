@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const H2 = styled.h2`
-  font-weight: 500;
-  margin-bottom: 0.75em;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin: 0.6em 0;
 `;
 
 export default H2;
