@@ -14,7 +14,7 @@ import {
   Section,
 } from 'components';
 
-const Welcome = () => (
+const About = () => (
   <Fragment>
     <Helmet>
       <title>About</title>
@@ -71,4 +71,4 @@ const Welcome = () => (
   </Fragment>
 );
 
-export default Welcome;
+export default About;
