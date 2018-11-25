@@ -57,18 +57,13 @@ class Resume extends Component {
           <Section id="introduce">
             <H2 id="introduce">Youngkyun kim</H2>
             <Paragraph>
-              I am software engineer based in South Korea.
-              As a data engineer, I have been working for more than a year.
+              I am data software engineer based in South Korea with 2+ years of experience.
             </Paragraph>
             <Paragraph>
-              I am currently interested in the hadoop ecosystem such as kafka, spark, etc.
-              but I am also interested in DevOps technologies and development of Front/Back-End.
+              I'm lazy, but I love challenging tasks in development and hobbies.
             </Paragraph>
             <Paragraph>
-              I am usually lazy, but I like to challenge development and hobbies.
-              I personally think that development experience is important
-              in the working environment, and I am looking back at whether
-              I am doing something worthwhile, not technically biased development.
+              My current goal is to be a data engineer providing reliable data infrastructure and analysis support.
             </Paragraph>
           </Section>
           <Divider />
@@ -82,24 +77,37 @@ class Resume extends Component {
             </Paragraph>
             <H4>Data Engineering</H4>
             <Paragraph>
-              Kafka, D3
+              HDFS, Hive, Kafka, D3
             </Paragraph>
             <H4>DevOps</H4>
             <Paragraph>
               Docker, Jenkins, Git
-            </Paragraph>
-            <H4>Design</H4>
-            <Paragraph>
-              Gimp, Photoshop, Illustrator
             </Paragraph>
           </Section>
           <Divider />
           <Section id="experience">
             <H2 id="experience">WORK EXPERIENCE</H2>
             <H3>Data Engineer</H3>
+            <H4>11Street</H4>
+            <Row>
+              <span>10/2018 - current</span>
+            </Row>
+            <Row>
+              <Col lg={24}>
+                <List listStyleType="circle" padding="0 0 0 1rem">
+                  <ListItem>Support builing Data Infrastructure Cluster</ListItem>
+                  <List listStyleType="circle" padding="0 0 0 2rem">
+                    <ListItem>
+                      Copying an existing data application cluster to a new data center
+                    </ListItem>
+                  </List>
+                </List>
+              </Col>
+            </Row>
+            <H3>Data Engineer</H3>
             <H4>Interpark</H4>
             <Row>
-              <span>05/2017 - current</span>
+              <span>05/2017 - 10/2018</span>
             </Row>
             <Row>
               <Col lg={24}>
@@ -130,9 +138,6 @@ class Resume extends Component {
                   <List listStyleType="circle" padding="0 0 0 2rem">
                     <ListItem>
                       Serving, receiving data with restful API or other protocol
-                    </ListItem>
-                    <ListItem>
-                      Main skill: Python
                     </ListItem>
                   </List>
                 </List>

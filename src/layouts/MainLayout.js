@@ -68,11 +68,11 @@ const MainLayout = props => (
   <BaseLayout>
     <StyledHeader>
       <HomeLink to="/">chancethecoder.me</HomeLink>
-      <HeaderRight>
+      {/* <HeaderRight>
         <LocaleToggle size="small">
           {props.locale.lang}
         </LocaleToggle>
-      </HeaderRight>
+      </HeaderRight> */}
     </StyledHeader>
     <Container>
       {props.children}
