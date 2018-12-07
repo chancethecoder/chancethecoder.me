@@ -57,7 +57,7 @@ class Resume extends Component {
           <Section id="introduce">
             <H2 id="introduce">Youngkyun kim</H2>
             <Paragraph>
-              I am data software engineer based in South Korea with 2+ years of experience.
+              I am a data software engineer based in South Korea with 2+ years of experience.
             </Paragraph>
             <Paragraph>
               I'm lazy, but I love challenging tasks in development and hobbies.
@@ -67,21 +67,21 @@ class Resume extends Component {
             </Paragraph>
           </Section>
           <Divider />
-          <Section id="skills">
-            <H2 id="skills">SKILLS</H2>
-            <H4>Programming</H4>
+          <Section id="skill">
+            <H2 id="skill">SKILL</H2>
+            <H4>Programming Language</H4>
             <Paragraph>
-              Ruby, Python, Java, C, C++, Lua, Openresty, SQL, NoSQL, Shell<br />
-              Javascript(ES6+), HTML, CSS, LESS, SASS<br />
-              Rails, Node, React, Redux, Styled Component, Electron
+              Ruby, Python, Java, Scala, C, SQL<br />
+              Javascript, HTML, CSS<br />
+              Rails, Node, React, Lua, Shell
             </Paragraph>
             <H4>Data Engineering</H4>
             <Paragraph>
-              HDFS, Hive, Kafka, D3
+              HDFS, Spark, Hive, Kafka
             </Paragraph>
-            <H4>DevOps</H4>
+            <H4>System Engineering &amp; DevOps</H4>
             <Paragraph>
-              Docker, Jenkins, Git
+              Linux, Docker, Jenkins
             </Paragraph>
           </Section>
           <Divider />
