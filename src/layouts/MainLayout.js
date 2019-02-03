@@ -13,7 +13,6 @@ import {
 
 import {
   TOC,
-  LocaleToggle,
 } from 'containers';
 
 import {
@@ -42,11 +41,6 @@ const HomeLink = styled(NavLink)`
   font-weight: 500;
   color: rgb(0, 0, 0, 0.85);
   line-height: 64px;
-`;
-
-const HeaderRight = styled.div`
-  display: flex;
-  align-items: center;
 `;
 
 const Container = styled(Content)`
