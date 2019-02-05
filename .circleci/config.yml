@@ -44,6 +44,14 @@ jobs:
       - run:
           command: |
             echo "Deploy Over SSH"
+            ssh SSH_USER@SSH_HOST << EOF
+              url="https://circleci.com/api/v1.1/project/github/chancethecoder/playground/latest/artifacts?circle-token=$CIRCLE_TOKEN&branch=master"
+              curl -s "$url" | grep -o 'https://[^"]*' | xargs -P4 -I % wget %?circle-token=$CIRCLE_TOKEN
+              pm2 delete all
+              rm -rf playground/*
+              tar xvf application.tar.gz?circle-token=$CIRCLE_TOKEN -C playground
+              pm2 serve playground 3000
+            EOF
 
 workflows:
   version: 2
