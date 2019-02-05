@@ -44,7 +44,7 @@ jobs:
       - run:
           command: |
             echo "Deploy Over SSH"
-            ssh SSH_USER@SSH_HOST << EOF
+            ssh $SSH_USER@$SSH_HOST << EOF
               url="https://circleci.com/api/v1.1/project/github/chancethecoder/playground/latest/artifacts?circle-token=$CIRCLE_TOKEN&branch=master"
               curl -s "$url" | grep -o 'https://[^"]*' | xargs -P4 -I % wget %?circle-token=$CIRCLE_TOKEN
               pm2 delete all
