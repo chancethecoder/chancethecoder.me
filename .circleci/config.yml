@@ -40,13 +40,17 @@ jobs:
   deploy:
     machine:
       enabled: true
+
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "cc:13:50:8f:63:f3:2e:9c:3a:48:ef:21:dd:85:23:43"
+
       - run:
           command: |
             echo "Deploy Over SSH"
-            ssh $SSH_USER@$SSH_HOST << EOF
-              url="https://circleci.com/api/v1.1/project/github/chancethecoder/playground/latest/artifacts?circle-token=$CIRCLE_TOKEN&branch=master"
-              curl -s "$url" | grep -o 'https://[^"]*' | xargs -P4 -I % wget %?circle-token=$CIRCLE_TOKEN
+            ssh -v $SSH_USER@$SSH_HOST << EOF
+              curl https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_PREVIOUS_BUILD_NUM/artifacts?circle-token=$CIRCLE_TOKEN | grep -o 'https://[^"]*' | xargs -P4 -I % wget %?circle-token=$CIRCLE_TOKEN
               pm2 delete all
               rm -rf playground/*
               tar xvf application.tar.gz?circle-token=$CIRCLE_TOKEN -C playground
