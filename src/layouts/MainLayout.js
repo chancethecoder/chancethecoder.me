@@ -6,18 +6,18 @@ import styled from 'styled-components';
 import { media } from 'utils/style-utils';
 
 import {
-  Affix,
+  // Affix,
   BackTop,
   Layout,
 } from 'antd';
 
-import {
-  TOC,
-} from 'containers';
+// import {
+//   TOC,
+// } from 'containers';
 
-import {
-  Grid,
-} from 'components';
+// import {
+//   Grid,
+// } from 'components';
 
 const {
   Header, Content, Footer,
@@ -70,11 +70,11 @@ const MainLayout = props => (
     </StyledHeader>
     <Container>
       {props.children}
-      <Grid margin="0">
+      {/* <Grid margin="0">
         <Affix offsetTop={10}>
           <TOC />
         </Affix>
-      </Grid>
+      </Grid> */}
     </Container>
     <StyledFooter>
       © 2018 by Youngkyun Kim

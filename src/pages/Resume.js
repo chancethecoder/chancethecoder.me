@@ -55,89 +55,108 @@ class Resume extends Component {
           padding="1.5rem 3rem"
         >
           <Section id="introduce">
-            <H2 id="introduce">Youngkyun kim</H2>
+            <H2 id="introduce">INTRODUCE</H2>
             <Paragraph>
-              I am a data software engineer based in South Korea with 2+ years of experience.
+              Hi, my name is Youngkyun Kim.
             </Paragraph>
             <Paragraph>
-              I'm lazy, but I love challenging tasks in development and hobbies.
+              I am a software engineer based in South Korea with 2+ years of experience.
             </Paragraph>
             <Paragraph>
-              My current goal is to be a data engineer providing reliable data infrastructure and analysis support.
+              My goal is to be an expert in creating a trusted data platform and creating invisible value through data play.
             </Paragraph>
           </Section>
           <Divider />
           <Section id="skill">
             <H2 id="skill">SKILL</H2>
             <H4>Programming Language</H4>
-            <Paragraph>
-              Ruby, Python, Java, Scala, C, SQL<br />
-              Javascript, HTML, CSS<br />
-              Rails, Node, React, Lua, Shell
-            </Paragraph>
-            <H4>Data Engineering</H4>
-            <Paragraph>
-              HDFS, Spark, Hive, Kafka
-            </Paragraph>
-            <H4>System Engineering &amp; DevOps</H4>
-            <Paragraph>
-              Linux, Docker, Jenkins
-            </Paragraph>
+            <Row>
+              <Col lg={24}>
+                <List listStyleType="circle" padding="0 0 0 1rem">
+                  <ListItem>Java</ListItem>
+                  <ListItem>Scala</ListItem>
+                  <ListItem>Python</ListItem>
+                  <ListItem>Ruby</ListItem>
+                  <ListItem>Javascript</ListItem>
+                </List>
+              </Col>
+            </Row>
+            <H4>Data Processing &amp; Pipelining</H4>
+            <Row>
+              <Col lg={24}>
+                <List listStyleType="circle" padding="0 0 0 1rem">
+                  <ListItem>Spark</ListItem>
+                  <ListItem>Oozie</ListItem>
+                  <ListItem>Airflow</ListItem>
+                </List>
+              </Col>
+            </Row>
+            <H4>Data Lake Operation</H4>
+            <Row>
+              <Col lg={24}>
+                <List listStyleType="circle" padding="0 0 0 1rem">
+                  <ListItem>HDFS</ListItem>
+                  <ListItem>Kafka</ListItem>
+                </List>
+              </Col>
+            </Row>
+            <H4>Container</H4>
+            <Row>
+              <Col lg={24}>
+                <List listStyleType="circle" padding="0 0 0 1rem">
+                  <ListItem>Docker</ListItem>
+                  <ListItem>Kubernetes</ListItem>
+                </List>
+              </Col>
+            </Row>
           </Section>
           <Divider />
           <Section id="experience">
-            <H2 id="experience">WORK EXPERIENCE</H2>
-            <H3>Data Engineer</H3>
-            <H4>11Street</H4>
+            <H2 id="experience">EXPERIENCE</H2>
+            <H3>11Street</H3>
             <Row>
               <span>10/2018 - current</span>
             </Row>
             <Row>
               <Col lg={24}>
                 <List listStyleType="circle" padding="0 0 0 1rem">
-                  <ListItem>Support builing Data Infrastructure Cluster</ListItem>
+                  <ListItem>Data Cluster Migration</ListItem>
                   <List listStyleType="circle" padding="0 0 0 2rem">
                     <ListItem>
-                      Copying an existing data application cluster to a new data center
+                      Moving softwares running on HDFS clusters to the new datacenter
+                    </ListItem>
+                    <ListItem>
+                      Moving data pipelines running on HDFS clusters to the new datacenter
                     </ListItem>
                   </List>
                 </List>
               </Col>
             </Row>
-            <H3>Data Engineer</H3>
-            <H4>Interpark</H4>
+            <H3>Interpark</H3>
             <Row>
               <span>05/2017 - 10/2018</span>
             </Row>
             <Row>
               <Col lg={24}>
                 <List listStyleType="circle" padding="0 0 0 1rem">
-                  <ListItem>Develop user behavior tracking service</ListItem>
+                  <ListItem>user behavior tracking service</ListItem>
                   <List listStyleType="circle" padding="0 0 0 2rem">
                     <ListItem>
-                      Tagging based web log collection system
+                      Tagging based web log collection system such as GTM
                     </ListItem>
                     <ListItem>
-                      Main skill: Openresty, Javascript, AWS, Kafka
+                      Main skill: Openresty, Javascript, AWS ECS
                     </ListItem>
                   </List>
                 </List>
                 <List listStyleType="circle" padding="0 0 0 1rem">
-                  <ListItem>Develop statistics inquiry service</ListItem>
+                  <ListItem>statistics visualization service</ListItem>
                   <List listStyleType="circle" padding="0 0 0 2rem">
                     <ListItem>
-                      In house web application providing statistical visualization
+                      In-house web application providing statistical visualization
                     </ListItem>
                     <ListItem>
                       Main skill: RubyOnRails, D3.js
-                    </ListItem>
-                  </List>
-                </List>
-                <List listStyleType="circle" padding="0 0 0 1rem">
-                  <ListItem>Develop Data pipeline</ListItem>
-                  <List listStyleType="circle" padding="0 0 0 2rem">
-                    <ListItem>
-                      Serving, receiving data with restful API or other protocol
                     </ListItem>
                   </List>
                 </List>
@@ -147,8 +166,8 @@ class Resume extends Component {
           <Divider />
           <Section id="education">
             <H2 id="education">EDUCATION</H2>
-            <H3>Bachelor&apos;s degree in Media</H3>
-            <H4>Ajou University</H4>
+            <H3>Ajou University</H3>
+            <H4>Bachelor&apos;s degree in Media</H4>
             <Row>
               <span>03/2011 - 02/2017</span>
             </Row>
