@@ -20,7 +20,7 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
+
       - run: yarn test
 
       - run: yarn build
@@ -28,9 +28,6 @@ jobs:
       - run:
           command: |
             tar cvf application.tar.gz -C build .
-
-      - run:
-          command: |
             mkdir -p /tmp/artifacts
             mv application.tar.gz /tmp/artifacts
 
@@ -42,21 +39,40 @@ jobs:
       enabled: true
 
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "cc:13:50:8f:63:f3:2e:9c:3a:48:ef:21:dd:85:23:43"
+      - run:
+          command: |
+            mkdir -p temp-gh-pages
+            cd temp-gh-pages
 
       - run:
           command: |
-            echo "Deploy Over SSH"
-            ssh -v $SSH_USER@$SSH_HOST << EOF
-              rm -f application.tar.gz*
-              curl https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_PREVIOUS_BUILD_NUM/artifacts?circle-token=$CIRCLE_TOKEN | grep -o 'https://[^"]*' | xargs -P4 -I % wget %?circle-token=$CIRCLE_TOKEN
-              pm2 delete all
-              rm -rf playground/*
-              tar xvf application.tar.gz?circle-token=$CIRCLE_TOKEN -C playground
-              pm2 serve playground 3000
-            EOF
+            git config --global user.email "$GH_EMAIL" > /dev/null 2>&1
+            git config --global user.name "$GH_NAME" > /dev/null 2>&1
+            git init
+            git remote add --fetch origin "$CIRCLE_REPOSITORY_URL"
+            if git rev-parse --verify origin/gh-pages > /dev/null 2>&1
+            then
+                git checkout gh-pages
+                git rm -rf .
+            else
+                git checkout --orphan gh-pages
+            fi
+
+      - run:
+          command: |
+            curl https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_PREVIOUS_BUILD_NUM/artifacts?circle-token=$CIRCLE_TOKEN | grep -o 'https://[^"]*' | xargs -P4 -I % wget %?circle-token=$CIRCLE_TOKEN
+            tar xvf application.tar.gz?circle-token=$CIRCLE_TOKEN .
+            rm -f application.tar.gz*
+
+      - run:
+          command: |
+            git add -A
+            git commit --allow-empty -m "Deploy to GitHub pages [ci skip]"
+            git push --force --quiet origin gh-pages
+
+      - run:
+          command: |
+            cd .. && rm -rf temp-gh-pages
 
 workflows:
   version: 2
