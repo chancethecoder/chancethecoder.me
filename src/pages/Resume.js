@@ -48,7 +48,7 @@ class Resume extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>Resume</title>
+          <title>chancethecoder.me</title>
           <meta name="description" content="chancethecoder's website" />
         </Helmet>
         <Grid
