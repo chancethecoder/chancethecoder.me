@@ -6,12 +6,12 @@ import { Layout } from 'antd';
 const { Header } = Layout;
 
 const StyledHeader = styled(Header)`
-  background: none !important;
-  padding: 0 !important;
+  background-color: #24292e !important;
+  padding: 0 1rem !important;
 `;
 
 const StyledNavLink = styled(NavLink)`
-  color: rgb(0, 0, 0, 0.85);
+  color: white;
 `;
 
 const BaseHeader = props => (

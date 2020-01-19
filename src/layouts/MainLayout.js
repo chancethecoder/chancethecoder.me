@@ -16,14 +16,19 @@ const BaseLayout = styled(Layout)`
 
 const Container = styled(Content)`
   margin: auto;
-  padding: 0 1.25rem;
+`;
+
+const Wrapper = styled.div`
+  padding: 0 1rem;
 `;
 
 const MainLayout = props => (
   <BaseLayout>
     <Container>
       <BaseHeader/>
-      {props.children}
+      <Wrapper>
+        {props.children}
+      </Wrapper>
       <BaseFooter/>
     </Container>
     <BackTop />
