@@ -6,10 +6,8 @@ import { bindActionCreators } from 'redux';
 
 import {
   Grid,
-  H1,
   H2,
   H3,
-  H4,
   Paragraph,
   Text,
   Section,
@@ -48,7 +46,7 @@ class AboutMe extends Component {
             <H2 id="introduce">About me</H2>
             <Paragraph>
               I'm a software engineer at an e-commerce company based in Gangnam, South Korea. <br/>
-              I have interest in technologies such as <a href="https://spark.apache.org/" target="_blank">Spark</a>, <a href="https://kafka.apache.org/" target="_blank">Kafka</a>, <a href="https://www.elastic.co/" target="_blank">Elasticsearch</a>. <br/>
+              I have interest in technologies such as <a href="https://spark.apache.org/" target="_blank" rel="noopener noreferrer">Spark</a>, <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer">Kafka</a>, <a href="https://www.elastic.co/" target="_blank" rel="noopener noreferrer">Elasticsearch</a>. <br/>
               My goal is to be an expert in data ecosystem and to create invisible value through data play.
             </Paragraph>
             <Paragraph>
