@@ -5,6 +5,8 @@ import { Layout } from 'antd';
 const { Footer } = Layout;
 
 const StyledFooter = styled(Footer)`
+  background: none !important;
+  padding: 24px 0 !important;
   text-align: center;
 `;
 

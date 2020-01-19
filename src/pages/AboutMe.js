@@ -41,8 +41,8 @@ class AboutMe extends Component {
           <title>chancethecoder.me</title>
           <meta name="description" content="chancethecoder's website" />
         </Helmet>
-        <Grid>
-          <Section id="introduce">
+        <Grid className="markdown">
+          <Section id="introduce" className="markdown">
             <H2 id="introduce">About me</H2>
             <Paragraph>
               I'm a software engineer at an e-commerce company based in Gangnam, South Korea. <br/>
@@ -56,7 +56,7 @@ class AboutMe extends Component {
               </Text>
             </Paragraph>
           </Section>
-          <Section id="skill">
+          <Section id="skill" className="markdown">
             <H2 id="skill">Skill</H2>
             <Paragraph>
               <ul>
@@ -88,7 +88,7 @@ class AboutMe extends Component {
               </ul>
             </Paragraph>
           </Section>          
-          <Section id="experience">
+          <Section id="experience" className="markdown">
             <H2 id="experience">Experience</H2>
             <H3>11Street</H3>
             <Paragraph>

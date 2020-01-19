@@ -7,7 +7,7 @@ const { Header } = Layout;
 
 const StyledHeader = styled(Header)`
   background: none !important;
-  margin: auto;
+  padding: 0 !important;
 `;
 
 const StyledNavLink = styled(NavLink)`
