@@ -1,84 +1,31 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { media } from 'utils/style-utils';
+import { BackTop, Layout } from 'antd';
 
-import {
-  // Affix,
-  BackTop,
-  Layout,
-} from 'antd';
+import BaseHeader from './BaseHeader';
+import BaseFooter from './BaseFooter';
 
-// import {
-//   TOC,
-// } from 'containers';
-
-// import {
-//   Grid,
-// } from 'components';
-
-const {
-  Header, Content, Footer,
-} = Layout;
+const { Content } = Layout;
 
 const BaseLayout = styled(Layout)`
   background: none !important;
   min-height: 100vh;
 `;
 
-const StyledHeader = styled(Header)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: none !important;
-  box-shadow: 0 2px 8px #f0f1f2;
-`;
-
-const HomeLink = styled(NavLink)`
-  font-size: 14px;
-  font-weight: 500;
-  color: rgb(0, 0, 0, 0.85);
-  line-height: 64px;
-`;
-
 const Container = styled(Content)`
-  display: flex;
-  justify-content: space-between;
-  ${media.min.laptop`
-    width: 70%;
-  `}
-  align-self: center;
-  width: 100%;
-  background: none;
-`;
-
-const StyledFooter = styled(Footer)`
-  text-align: center;
+  padding: 1.5rem 0;
+  margin: auto;
 `;
 
 const MainLayout = props => (
   <BaseLayout>
-    <StyledHeader>
-      <HomeLink to="/">chancethecoder.me</HomeLink>
-      {/* <HeaderRight>
-        <LocaleToggle size="small">
-          {props.locale.lang}
-        </LocaleToggle>
-      </HeaderRight> */}
-    </StyledHeader>
+    <BaseHeader/>
     <Container>
       {props.children}
-      {/* <Grid margin="0">
-        <Affix offsetTop={10}>
-          <TOC />
-        </Affix>
-      </Grid> */}
     </Container>
-    <StyledFooter>
-      © 2018 by Youngkyun Kim
-    </StyledFooter>
+    <BaseFooter/>
     <BackTop />
   </BaseLayout>
 );

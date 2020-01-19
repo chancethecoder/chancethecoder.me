@@ -1,8 +1,5 @@
-import styled from 'styled-components';
+import { Typography } from 'antd';
 
-const Paragraph = styled.p`
-  margin-bottom: 0.75em;
-  line-height: 1.5;
-`;
+const { Paragraph } = Typography;
 
 export default Paragraph;

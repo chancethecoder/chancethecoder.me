@@ -1,9 +1,13 @@
+import { Typography } from 'antd';
 import styled from 'styled-components';
 
-const H3 = styled.h3`
-  font-size: 1.75rem;
-  line-height: 1.1;
-  margin: 0.5em 0;
+const { Title } = Typography;
+
+const H3 = styled(Title)`
 `;
+
+H3.defaultProps = {
+  level: 3,
+};
 
 export default H3;

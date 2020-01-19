@@ -13,7 +13,6 @@ const Grid = styled.div`
 Grid.defaultProps = {
   gridTemplateColumns: 'auto',
   gridTemplateRows: 'auto',
-  padding: '1.5rem',
   margin: 'auto',
 };
 

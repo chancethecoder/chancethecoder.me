@@ -1,15 +1,9 @@
-export { default as Button } from './Button';
-export { default as ButtonGroup } from './ButtonGroup';
-export { default as Flex } from './Flex';
 export { default as Grid } from './Grid';
-export { default as GridItem } from './GridItem';
 export { default as H1 } from './Heading/H1';
 export { default as H2 } from './Heading/H2';
 export { default as H3 } from './Heading/H3';
 export { default as H4 } from './Heading/H4';
-export { default as List } from './List';
-export { default as ListItem } from './ListItem';
-export { default as NavButton } from './NavButton';
 export { default as Paragraph } from './Paragraph';
+export { default as Text } from './Text';
 export { default as RouteWithLayout } from './RouteWithLayout';
 export { default as Section } from './Section';

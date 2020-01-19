@@ -1,9 +1,9 @@
+import { Typography } from 'antd';
 import styled from 'styled-components';
 
-const H1 = styled.h1`
-  font-size: 3.25rem;
-  line-height: 1.1;
-  margin: 0.75em 0;
+const { Title } = Typography;
+
+const H1 = styled(Title)`
 `;
 
 export default H1;
