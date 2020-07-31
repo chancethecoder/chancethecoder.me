@@ -14,7 +14,6 @@ const RouteWithLayout = ({ layout=MainLayout, page, ...rest } = {}) => (
 );
 
 RouteWithLayout.propTypes = {
-  layout: PropTypes.func.isRequired,
   page: PropTypes.func.isRequired,
 };
 

@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 
 const { Header } = Layout;
 
-const BaseHeader = props => (
+const BaseHeader = () => (
   <Header style={{
     backgroundColor: '#24292e',
     padding: '0 1rem',
