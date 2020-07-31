@@ -68,7 +68,7 @@ class AboutMe extends Component {
             <h2>Experience</h2>
             <h3 id="experience-11street">11Street</h3>
             <p>
-              <Text mark>10/2018 - current</Text>
+              <Text mark>10/2018 ~ current</Text>
               <ul>
                 <li>
                   Data Ingestion
@@ -93,7 +93,7 @@ class AboutMe extends Component {
             </p>
             <h3 id="experience-interpark">Interpark</h3>
             <p>
-              <Text mark>05/2017 - 10/2018</Text>
+              <Text mark>05/2017 ~ 10/2018</Text>
               <ul>
                 <li>Application DevOps
                   <ul>
@@ -103,12 +103,12 @@ class AboutMe extends Component {
                 </li>
               </ul>
             </p>
-            <h3>Ajou University</h3>
+            <h3 id="experience-before-working">Before Working</h3>
             <p>
-              <Text mark>03/2011 - 02/2017</Text>
+              <Text mark>~02/2017</Text>
               <ul>
-                <li>Bachelor&apos;s degree in Media</li>
                 <li>Studying computer science</li>
+                <li>Bachelor&apos;s degree in Media at Ajou Univ</li>
               </ul>
             </p>
           </section>
@@ -123,6 +123,7 @@ class AboutMe extends Component {
           <Link href="#experience" title="Experience">
             <Link href="#experience-11street" title="11street" />
             <Link href="#experience-interpark" title="Interpark" />
+            <Link href="#experience-before-working" title="Before working" />
           </Link>
         </Anchor>
       </div>
