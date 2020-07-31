@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Anchor } from 'antd';
+import { Anchor, Typography } from 'antd';
 
 const { Link } = Anchor;
+const { Text } = Typography;
 
 class AboutMe extends Component {
   render() {
@@ -14,14 +15,21 @@ class AboutMe extends Component {
             <h2>About me</h2>
             <p>
               I'm a software engineer at an e-commerce company based in Gangnam, South Korea. <br/>
-              I have interest in technologies such as <a href="https://spark.apache.org/" target="_blank" rel="noopener noreferrer">Spark</a>, <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer">Kafka</a>, <a href="https://www.elastic.co/" target="_blank" rel="noopener noreferrer">Elasticsearch</a>. <br/>
-              My goal is to be an expert in data ecosystem and to create invisible value through data play.
+              I have interest in technologies such as <a href="https://spark.apache.org/" target="_blank" rel="noopener noreferrer">Spark</a>, <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer">Kafka</a>, <a href="https://kubernetes.io/" target="_blank" rel="noopener noreferrer">Kubernetes</a>. <br/>
             </p>
             <p>
               Feel free to contact me: <br/>
-              <span copyable>
-                <a href="mailto:chancethecoder@gmail.com">chancethecoder@gmail.com</a>
-              </span>
+              <ul>
+                <li>
+                  <Text copyable><a href="mailto:chancethecoder@gmail.com">chancethecoder@gmail.com</a></Text>
+                </li>
+                <li>
+                  <a href="https://github.com/chancethecoder" target="_blank">github</a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/youngkyun-kim/" target="_blank">linkedin</a>
+                </li>
+              </ul>
             </p>
           </section>
           <section id="skill" className="markdown">
@@ -55,12 +63,12 @@ class AboutMe extends Component {
                 </li>
               </ul>
             </p>
-          </section>          
+          </section>
           <section id="experience" className="markdown">
             <h2>Experience</h2>
             <h3 id="experience-11street">11Street</h3>
             <p>
-              <span type="secondary">10/2018 - current</span>
+              <Text mark>10/2018 - current</Text>
               <ul>
                 <li>
                   Data Ingestion
@@ -85,7 +93,7 @@ class AboutMe extends Component {
             </p>
             <h3 id="experience-interpark">Interpark</h3>
             <p>
-              <span type="secondary">05/2017 - 10/2018</span>
+              <Text mark>05/2017 - 10/2018</Text>
               <ul>
                 <li>Application DevOps
                   <ul>
@@ -97,9 +105,10 @@ class AboutMe extends Component {
             </p>
             <h3>Ajou University</h3>
             <p>
-              <span type="secondary">03/2011 - 02/2017</span>
+              <Text mark>03/2011 - 02/2017</Text>
               <ul>
                 <li>Bachelor&apos;s degree in Media</li>
+                <li>Studying computer science</li>
               </ul>
             </p>
           </section>
