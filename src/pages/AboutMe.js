@@ -1,44 +1,35 @@
-import React, { Component, Fragment } from 'react';
-import { Helmet } from 'react-helmet';
+import React, { Component } from 'react';
+import { Anchor } from 'antd';
 
-import {
-  Grid,
-  H2,
-  H3,
-  Paragraph,
-  Text,
-  Section,
-} from 'components';
+const { Link } = Anchor;
 
 class AboutMe extends Component {
   render() {
     return (
-      <Fragment>
-        <Helmet>
-          <title>chancethecoder.me</title>
-          <meta name="description" content="chancethecoder's website" />
-        </Helmet>
-        <Grid className="markdown">
-          <Section id="introduce" className="markdown">
-            <H2 id="introduce">About me</H2>
-            <Paragraph>
+      <div style={{
+        display: "flex",
+      }}>
+        <div className="markdown">
+          <section id="introduce" className="markdown">
+            <h2>About me</h2>
+            <p>
               I'm a software engineer at an e-commerce company based in Gangnam, South Korea. <br/>
               I have interest in technologies such as <a href="https://spark.apache.org/" target="_blank" rel="noopener noreferrer">Spark</a>, <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer">Kafka</a>, <a href="https://www.elastic.co/" target="_blank" rel="noopener noreferrer">Elasticsearch</a>. <br/>
               My goal is to be an expert in data ecosystem and to create invisible value through data play.
-            </Paragraph>
-            <Paragraph>
+            </p>
+            <p>
               Feel free to contact me: <br/>
-              <Text copyable>
+              <span copyable>
                 <a href="mailto:chancethecoder@gmail.com">chancethecoder@gmail.com</a>
-              </Text>
-            </Paragraph>
-          </Section>
-          <Section id="skill" className="markdown">
-            <H2 id="skill">Skill</H2>
-            <Paragraph>
+              </span>
+            </p>
+          </section>
+          <section id="skill" className="markdown">
+            <h2>Skill</h2>
+            <p>
               <ul>
-                <li>
-                  Language
+                <li id="skill-programming-language">
+                  Programming Language
                   <ul>
                     <li>Java</li>
                     <li>Scala</li>
@@ -46,7 +37,7 @@ class AboutMe extends Component {
                     <li>Javascript</li>
                   </ul>
                 </li>
-                <li>
+                <li id="skill-data-engineering">
                   Data Engineering
                   <ul>
                     <li>Spark</li>
@@ -55,7 +46,7 @@ class AboutMe extends Component {
                     <li>Kafka</li>
                   </ul>
                 </li>
-                <li>
+                <li id="skill-devops">
                   DevOps
                   <ul>
                     <li>Docker</li>
@@ -63,13 +54,13 @@ class AboutMe extends Component {
                   </ul>
                 </li>
               </ul>
-            </Paragraph>
-          </Section>          
-          <Section id="experience" className="markdown">
-            <H2 id="experience">Experience</H2>
-            <H3>11Street</H3>
-            <Paragraph>
-              <Text type="secondary">10/2018 - current</Text>
+            </p>
+          </section>          
+          <section id="experience" className="markdown">
+            <h2>Experience</h2>
+            <h3 id="experience-11street">11Street</h3>
+            <p>
+              <span type="secondary">10/2018 - current</span>
               <ul>
                 <li>
                   Data Ingestion
@@ -91,10 +82,10 @@ class AboutMe extends Component {
                   </ul>
                 </li>
               </ul>
-            </Paragraph>
-            <H3>Interpark</H3>
-            <Paragraph>
-              <Text type="secondary">05/2017 - 10/2018</Text>
+            </p>
+            <h3 id="experience-interpark">Interpark</h3>
+            <p>
+              <span type="secondary">05/2017 - 10/2018</span>
               <ul>
                 <li>Application DevOps
                   <ul>
@@ -103,17 +94,29 @@ class AboutMe extends Component {
                   </ul>
                 </li>
               </ul>
-            </Paragraph>
-            <H3>Ajou University</H3>
-            <Paragraph>
-              <Text type="secondary">03/2011 - 02/2017</Text>
+            </p>
+            <h3>Ajou University</h3>
+            <p>
+              <span type="secondary">03/2011 - 02/2017</span>
               <ul>
                 <li>Bachelor&apos;s degree in Media</li>
               </ul>
-            </Paragraph>
-          </Section>
-        </Grid>
-      </Fragment>
+            </p>
+          </section>
+        </div>
+        <Anchor>
+          <Link href="#introduce" title="About me" />
+          <Link href="#skill" title="Skill">
+            <Link href="#skill-programming-language" title="Programming Language" />
+            <Link href="#skill-data-engineering" title="Data Engineering" />
+            <Link href="#skill-devops" title="DevOps" />
+          </Link>
+          <Link href="#experience" title="Experience">
+            <Link href="#experience-11street" title="11street" />
+            <Link href="#experience-interpark" title="Interpark" />
+          </Link>
+        </Anchor>
+      </div>
     );
   }
 }

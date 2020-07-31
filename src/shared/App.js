@@ -3,12 +3,9 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './App.css';
 
-import {
-  AboutMe,
-  NotFound,
-} from 'pages';
-
-import RouteWithLayout from 'layouts';
+import AboutMe from 'pages/AboutMe';
+import NotFound from 'pages/NotFound';
+import RouteWithLayout from 'layouts/RouteWithLayout';
 
 const App = () => (
   <Switch>

@@ -1,9 +1,0 @@
-export { default as Grid } from './Grid';
-export { default as H1 } from './Heading/H1';
-export { default as H2 } from './Heading/H2';
-export { default as H3 } from './Heading/H3';
-export { default as H4 } from './Heading/H4';
-export { default as Paragraph } from './Paragraph';
-export { default as Text } from './Text';
-export { default as RouteWithLayout } from './RouteWithLayout';
-export { default as Section } from './Section';

@@ -1,19 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Layout } from 'antd';
 
 const { Footer } = Layout;
 
-const StyledFooter = styled(Footer)`
-  background: none !important;
-  padding: 24px 0 !important;
-  text-align: center;
-`;
-
 const BaseFooter = () => (
-  <StyledFooter>
+  <Footer style={{
+    background: 'none',
+    padding: '24px 0',
+    textAlign: 'center',
+  }}>
     &copy; 2020 by Youngkyun Kim
-  </StyledFooter>
+  </Footer>
 );
 
 export default BaseFooter;

@@ -2,9 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import {
-  MainLayout,
-} from '.';
+import MainLayout from './MainLayout';
 
 const RouteWithLayout = ({ layout=MainLayout, page, ...rest } = {}) => (
   <Route

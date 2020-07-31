@@ -1,36 +1,33 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { BackTop, Layout } from 'antd';
 
-import { BaseHeader, BaseFooter} from '.';
+import BaseFooter from './BaseFooter';
+import BaseHeader from './BaseHeader';
 
 const { Content } = Layout;
 
-const BaseLayout = styled(Layout)`
-  background: none !important;
-  min-height: 100vh;
-`;
-
-const Container = styled(Content)`
-  margin: auto;
-`;
-
-const Wrapper = styled.div`
-  padding: 0 1rem;
-`;
-
 const MainLayout = props => (
-  <BaseLayout>
-    <Container>
+  <Layout style={{
+    minHeight: '100vh',
+    background: 'none',
+  }}>
+    <Helmet>
+      <title>chancethecoder.me</title>
+      <meta name="description" content="chancethecoder's website" />
+    </Helmet>
+    <Content style={{
+      margin: props.margin || 'auto',
+    }}>
       <BaseHeader/>
-      <Wrapper>
+      <div style={{ padding: '1rem' }}>
         {props.children}
-      </Wrapper>
+      </div>
       <BaseFooter/>
-    </Container>
+    </Content>
     <BackTop />
-  </BaseLayout>
+  </Layout>
 );
 
 MainLayout.propTypes = {

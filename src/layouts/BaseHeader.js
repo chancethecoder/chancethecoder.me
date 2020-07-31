@@ -1,25 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 import { Layout } from 'antd';
 
 const { Header } = Layout;
 
-const StyledHeader = styled(Header)`
-  background-color: #24292e !important;
-  padding: 0 1rem !important;
-`;
-
-const StyledNavLink = styled(NavLink)`
-  color: white;
-`;
-
 const BaseHeader = props => (
-  <StyledHeader>
-    <StyledNavLink to="/">
+  <Header style={{
+    backgroundColor: '#24292e',
+    padding: '0 1rem',
+  }}>
+    <NavLink to='/' style={{ color: 'white' }}>
       <b>chancethecoder.me</b>
-    </StyledNavLink>
-  </StyledHeader>
+    </NavLink>
+  </Header>
 );
 
 export default BaseHeader;
