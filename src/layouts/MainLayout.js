@@ -1,11 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { BackTop, Layout } from 'antd';
 
-import BaseHeader from './BaseHeader';
-import BaseFooter from './BaseFooter';
+import { BaseHeader, BaseFooter} from '.';
 
 const { Content } = Layout;
 
@@ -37,13 +35,6 @@ const MainLayout = props => (
 
 MainLayout.propTypes = {
   children: PropTypes.node.isRequired,
-  locale: PropTypes.shape({
-    lang: PropTypes.string,
-  }).isRequired,
 };
 
-const mapStateToProps = state => ({
-  locale: state.locale,
-});
-
-export default connect(mapStateToProps)(MainLayout);
+export default MainLayout;

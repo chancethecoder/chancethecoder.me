@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import Root from './components/Root';
 import configureStore, { history } from './store/configureStore';
-// import registerServiceWorker from './registerServiceWorker';
 
 const store = configureStore();
 
@@ -26,5 +25,3 @@ if (module.hot) {
     );
   });
 }
-
-// registerServiceWorker();

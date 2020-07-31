@@ -1,8 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
 
 import {
   Grid,
@@ -13,27 +10,7 @@ import {
   Section,
 } from 'components';
 
-import * as tocActions from 'actions/tocActions';
-
 class AboutMe extends Component {
-  constructor(props) {
-    super(props);
-
-    this.tableOfContents = [
-      { key: 'introduce', name: 'introduce', active: false },
-      { key: 'skills', name: 'skills', active: false },
-      { key: 'experience', name: 'experience', active: false },
-    ];
-  }
-
-  componentDidMount() {
-    this.props.actions.tocActions.setContents(this.tableOfContents);
-  }
-
-  componentWillUnmount() {
-    this.props.actions.tocActions.setContents([]);
-  }
-
   render() {
     return (
       <Fragment>
@@ -141,29 +118,4 @@ class AboutMe extends Component {
   }
 }
 
-AboutMe.propTypes = {
-  actions: PropTypes.shape({
-    tocActions: PropTypes.shape({
-      setContents: PropTypes.func,
-    }).isRequired,
-  }).isRequired,
-};
-
-function mapStateToProps(state) {
-  return {
-    tocTarget: state.tocTarget,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      tocActions: bindActionCreators(tocActions, dispatch),
-    },
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(AboutMe);
+export default AboutMe;
