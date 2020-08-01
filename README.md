@@ -1,5 +1,5 @@
-[![CircleCI](https://circleci.com/gh/chancethecoder/chancethecoder.me/tree/master.svg?style=svg&circle-token=6aad72fde7a1a1adc7d3fbc3c82e3d05fd254961)](https://circleci.com/gh/chancethecoder/chancethecoder.me/tree/master)
+![github pages](https://github.com/chancethecoder/chancethecoder.me/workflows/github%20pages/badge.svg)
 
-This project is chancethecoder's personal works.
+My personal works
 
 Bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
