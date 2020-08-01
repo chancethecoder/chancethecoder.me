@@ -25,13 +25,13 @@ const AboutMe = () => (
         <p>
           Feel free to contact me <SmileTwoTone /><br/>
           <Tag icon={<GithubOutlined />} color="#211F1F">
-            <a href="https://github.com/chancethecoder" target="_blank" rel="noopener">Github</a>
+            <a href="https://github.com/chancethecoder" target="_blank" rel="noopener noreferrer">Github</a>
           </Tag>
           <Tag icon={<LinkedinOutlined />} color="#55acee">
-            <a href="https://www.linkedin.com/in/youngkyun-kim/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/youngkyun-kim/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </Tag>
           <Tag icon={<InstagramOutlined />} color="#E1306C">
-            <a href="https://www.instagram.com/__youngkyun__/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.instagram.com/__youngkyun__/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </Tag>
           <Tag icon={<MailOutlined />}>
             <a href="mailto:chancethecoder@gmail.com">E-mail</a>
