@@ -46,18 +46,16 @@ const AboutMe = () => (
           <li>
             Data Handling
             <ul>
-              <li>Ingest massive data(client/server log) from Kafka to Hadoop cluster using consumers</li>
-              <li>Gather logs from sentry, hadoop, yarn and make meaningful audit data</li>
-              <li>Gather metrics from k8s cluster by Elastic stack (Logstash, Metricbeat, Filebeat)</li>
+              <li>Ingest client/server log from Kafka to Hadoop cluster using consumers</li>
+              <li>ETLs using Spark, Airflow</li>
+              <li>Gather metrics from k8s cluster by Elastic stack</li>
             </ul>
           </li>
           <li>
             DevOps
             <ul>
-              <li>Querying tools like Jupyter, Zeppelin, In-house tool, etc</li>
-              <li>BI tools like Metabase, Redash</li>
-              <li>Data schema management tool</li>
-              <li>Metadata search tool</li>
+              <li>Tools like Jupyterhub(z2jh), Rstudio, Metabase, etc</li>
+              <li>In-house applications for data play</li>
               <li>Integrate applications with Kubernetes</li>
             </ul>
           </li>
