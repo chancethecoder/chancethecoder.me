@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import Root from './components/Root';
 import configureStore, { history } from './store/configureStore';
+import 'antd/dist/antd.css';
+import './index.css';
 
 const store = configureStore();
 

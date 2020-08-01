@@ -1,7 +1,5 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import 'antd/dist/antd.css';
-import './App.css';
 
 import AboutMe from 'pages/AboutMe';
 import NotFound from 'pages/NotFound';
