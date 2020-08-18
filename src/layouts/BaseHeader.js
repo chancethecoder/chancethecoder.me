@@ -1,17 +1,23 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Layout } from 'antd';
+import { Button, Layout, Space } from 'antd';
+import { AppstoreOutlined, HomeOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
 
 const BaseHeader = () => (
   <Header style={{
-    backgroundColor: '#24292e',
+    background: 'none',
     padding: '0 1rem',
   }}>
-    <NavLink to='/' style={{ color: 'white' }}>
-      <b>chancethecoder.me</b>
-    </NavLink>
+    <Space size="small">
+      <NavLink to='/'>
+        <Button type="default" shape="circle" icon={<HomeOutlined />} size={"large"} />
+      </NavLink>
+      <NavLink to='/archive'>
+        <Button type="default" shape="circle" icon={<AppstoreOutlined />} size={"large"} />
+      </NavLink>
+    </Space>
   </Header>
 );
 
